@@ -4,6 +4,7 @@
 BleKeyboard bleKeyboard(DeviceName, Manufacturer, DevicePower);
 
 void bt_test(){
+  int i = 0;
     pinMode(39,INPUT);
     if(DBG_KEYBOARD){
         Serial.println("Starting BLE work!");
@@ -14,24 +15,15 @@ void bt_test(){
     for(;;){
     
         if(bleKeyboard.isConnected()&&digitalRead(39)) {
-            Serial.println("Sending 'Hello world'...");
-            bleKeyboard.print("Hello world");
-            delay(1000);
+            Serial.println("w");
+            if(i==0){
+              bleKeyboard.press(KEY_W);
+            }
+             if(i==1){
+               bleKeyboard.releaseAll();
+             }
 
-            Serial.println("Sending Enter key...");
-            bleKeyboard.write(KEY_RETURN);
-
-            delay(1000);
-
-            Serial.println("Sending Play/Pause media key...");
-
-            bleKeyboard.write(KEY_MEDIA_PLAY_PAUSE);
-
-            delay(1000);
-            Serial.println("Sending Ctrl+Alt+Delete...");
-            bleKeyboard.press(KEY_W);
-            delay(100);
-            bleKeyboard.releaseAll();
+            //bleKeyboard.releaseAll();
             //
             // Below is an example of pressing multiple keyboard modifiers 
             // which by default is commented out. 
@@ -43,7 +35,7 @@ void bt_test(){
             delay(100);
             bleKeyboard.releaseAll();
             */
-
+          i = (i+1)%2;
   }
     }
   Serial.println("Waiting 5 seconds...");

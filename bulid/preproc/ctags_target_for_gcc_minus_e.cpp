@@ -7,6 +7,9 @@
 void setup() {
   Serial.begin(115200);
   Serial.println("Joker setting up!");
+  delay(10000);
+  pinMode(2,0x02);
+  digitalWrite(2,0x1);
 }
 
 void loop() {
@@ -20,6 +23,7 @@ void loop() {
 BleKeyboard bleKeyboard("Joker" /*设备名*/, "Liu" /*设备制造商*/, 100 /*电量*/);
 
 void bt_test(){
+  int i = 0;
     pinMode(39,0x01);
     if(DBG_KEYBOARD){
         Serial.println("Starting BLE work!");
@@ -30,24 +34,15 @@ void bt_test(){
     for(;;){
 
         if(bleKeyboard.isConnected()&&digitalRead(39)) {
-            Serial.println("Sending 'Hello world'...");
-            bleKeyboard.print("Hello world");
-            delay(1000);
+            Serial.println("w");
+            if(i==0){
+              bleKeyboard.press(KEY_W);
+            }
+             if(i==1){
+               bleKeyboard.releaseAll();
+             }
 
-            Serial.println("Sending Enter key...");
-            bleKeyboard.write(KEY_RETURN);
-
-            delay(1000);
-
-            Serial.println("Sending Play/Pause media key...");
-
-            bleKeyboard.write(KEY_MEDIA_PLAY_PAUSE);
-
-            delay(1000);
-            Serial.println("Sending Ctrl+Alt+Delete...");
-            bleKeyboard.press(KEY_W);
-            delay(100);
-            bleKeyboard.releaseAll();
+            //bleKeyboard.releaseAll();
             //
             // Below is an example of pressing multiple keyboard modifiers 
             // which by default is commented out. 
@@ -65,7 +60,8 @@ void bt_test(){
             bleKeyboard.releaseAll();
 
             */
-# 47 "c:\\Users\\LiuZeshu\\Desktop\\esp32_keyboard\\v0.0.0\\poker_keyboard\\poker_bt.ino"
+# 38 "c:\\Users\\LiuZeshu\\Desktop\\esp32_keyboard\\v0.0.0\\poker_keyboard\\poker_bt.ino"
+          i = (i+1)%2;
   }
     }
   Serial.println("Waiting 5 seconds...");
