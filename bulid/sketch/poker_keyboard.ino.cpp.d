@@ -128,6 +128,7 @@ c:\Users\LiuZeshu\Desktop\esp32_keyboard\bulid\sketch\poker_keyboard.ino.cpp.o: 
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\variants\esp32/pins_arduino.h \
  c:\Users\LiuZeshu\Desktop\esp32_keyboard\bulid\sketch\poker_keyboard.h \
  c:\Users\LiuZeshu\Desktop\esp32_keyboard\bulid\sketch\poker_bt.h \
+ c:\Users\LiuZeshu\Desktop\esp32_keyboard\bulid\sketch\Layout.h \
  C:\Users\LiuZeshu\Documents\Arduino\libraries\ESP32-BLE-Keyboard/BleKeyboard.h \
  C:\Users\LiuZeshu\Documents\Arduino\libraries\ESP32-BLE-Keyboard/BleConnectionStatus.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/BLEServer.h \
@@ -152,4 +153,6 @@ c:\Users\LiuZeshu\Desktop\esp32_keyboard\bulid\sketch\poker_keyboard.ino.cpp.o: 
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/BLEHIDDevice.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/BLE2902.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/HIDTypes.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/Print.h
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/Print.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\Wire\src/Wire.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/esp32-hal.h

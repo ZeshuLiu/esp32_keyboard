@@ -7,9 +7,9 @@
             "compilerArgs": [],
             "intelliSenseMode": "windows-msvc-x64",
             "includePath": [
-                "${workspaceFolder}\\**",
-                "C:\\Users\\LiuZeshu\\Documents\\Arduino\\**",
-                "C:\\Program Files (x86)\\Arduino\\**"
+                "${workspaceFolder}/**",
+                "C:\\Program Files (x86)\\Arduino\\**",
+                "C:\\Users\\LiuZeshu\\Documents\\Arduino\\**"
             ],
             "forcedInclude": [],
             "cStandard": "c17",
@@ -219,6 +219,7 @@
                 "C:\\Users\\LiuZeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.2\\variants\\esp32",
                 "C:\\Users\\LiuZeshu\\Documents\\Arduino\\libraries\\ESP32-BLE-Keyboard",
                 "C:\\Users\\LiuZeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.2\\libraries\\BLE\\src",
+                "C:\\Users\\LiuZeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.2\\libraries\\Wire\\src",
                 "c:\\users\\liuzeshu\\appdata\\local\\arduino15\\packages\\esp32\\tools\\xtensa-esp32-elf-gcc\\gcc8_4_0-esp-2021r2\\xtensa-esp32-elf\\include\\c++\\8.4.0",
                 "c:\\users\\liuzeshu\\appdata\\local\\arduino15\\packages\\esp32\\tools\\xtensa-esp32-elf-gcc\\gcc8_4_0-esp-2021r2\\xtensa-esp32-elf\\include\\c++\\8.4.0\\xtensa-esp32-elf",
                 "c:\\users\\liuzeshu\\appdata\\local\\arduino15\\packages\\esp32\\tools\\xtensa-esp32-elf-gcc\\gcc8_4_0-esp-2021r2\\xtensa-esp32-elf\\include\\c++\\8.4.0\\backward",
