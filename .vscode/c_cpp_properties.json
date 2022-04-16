@@ -7,7 +7,7 @@
             "compilerArgs": [],
             "intelliSenseMode": "windows-msvc-x64",
             "includePath": [
-                "${workspaceFolder}/**",
+                "${workspaceFolder}\\**",
                 "C:\\Program Files (x86)\\Arduino\\**",
                 "C:\\Users\\LiuZeshu\\Documents\\Arduino\\**"
             ],

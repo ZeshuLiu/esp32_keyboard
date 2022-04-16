@@ -5,8 +5,9 @@
 #include "Layout.h"
 
 void bt_test();
-void bt_start();
+void bt_work();
 
 bool bt_stat = 0;
+bool iw = 0;
 
 # endif

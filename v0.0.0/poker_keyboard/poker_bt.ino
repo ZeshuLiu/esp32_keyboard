@@ -44,7 +44,7 @@ void bt_test(){
   delay(5000);
 }
 
-void bt_start(){
+void bt_work(){
   if(DBG_KEYBOARD){
         Serial.println("Starting BLE work!");
   }
@@ -55,7 +55,7 @@ void bt_start(){
 bool start_flag = 0;
 //循环扫描
 for (;;){
-  if (bleKeyboard.isConnected()){
+  if (bleKeyboard.isConnected()){//连接上
     bt_stat = 1;
     
      //第一次先赋值
@@ -82,10 +82,32 @@ for (;;){
           key_press[ROW][COL] = digitalRead(key_pin_in[COL]);
           
           //判断键值变化
-          if (start_flag & (old_key_press[ROW][COL]!=key_press[ROW][COL]) ){ 
+          if (start_flag & ( (old_key_press[ROW][COL]!=key_press[ROW][COL]) ||( iw==1&&( ROW==10&&COL==0 ) ))){ 
             if (DBG_KEYBOARD){
               Serial.println("***["+ String(ROW) + "," + String(COL) + "]:" + String(key_press[ROW][COL])+ "means:" + String(LayOut[ROW][COL]) );
             }
+
+            //防止iw双击
+            if((ROW==0&&COL==0)&&(key_press[ROW][COL]==0)&&(!iw)){ // 进入w，防止双击
+              iw = 1 ;
+              if(DBG_KEYBOARD){
+                Serial.println("W?");
+              }
+              continue;
+            }
+
+            if(iw==1&&(ROW==10&&COL==0)&&(key_press[ROW][COL]==1)){//w么有，这是i
+              bleKeyboard.press(LayOut[0][0]);
+              continue;
+            }
+            if(iw==1&&(ROW==10&&COL==0)&&(key_press[ROW][COL]==0)){//w按下
+              bleKeyboard.press(LayOut[10][0]);
+              continue;
+            }
+            if((ROW==0&&COL==0)&&key_press[ROW][COL]==1){ // 00松开
+              iw = 0 ;
+            }
+            //防止iw双击结束
 
             //发送按键
             if ((LayOut[ROW][COL]!=0)){
@@ -119,4 +141,4 @@ for (;;){
 
 }//循环扫描不会结束
 
-}//end bt_start
+}//end bt_work
