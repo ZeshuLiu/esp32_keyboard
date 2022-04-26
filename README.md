@@ -2,7 +2,9 @@
 ## **如何使用**
 
 ### PCB部分
-Gerber文件位于 `.\Joker60\`
+Gerber文件位于 [PCB文件地址](https://github.com/LiuZSChina/esp32_keyboard/blob/main/Joker60/01/Gerber_PCB_Joker60_ver1.zip) 
+大部分PCB定制厂商都支持直接使用Gerber文件制作
+
 ----
 ## **JOKER60**
 `Joker 60` 
