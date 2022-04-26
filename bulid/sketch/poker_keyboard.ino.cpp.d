@@ -2,21 +2,9 @@ c:\Users\LiuZeshu\Desktop\esp32_keyboard\bulid\sketch\poker_keyboard.ino.cpp.o: 
  c:\Users\LiuZeshu\Desktop\esp32_keyboard\bulid\sketch\poker_keyboard.ino.cpp \
  c:\Users\LiuZeshu\Desktop\esp32_keyboard\bulid\sketch\poker_keyboard.h \
  c:\Users\LiuZeshu\Desktop\esp32_keyboard\bulid\sketch\poker_bt.h \
- c:\Users\LiuZeshu\Desktop\esp32_keyboard\bulid\sketch\Layout.h \
- C:\Users\LiuZeshu\Documents\Arduino\libraries\ESP32-BLE-Keyboard/BleKeyboard.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/config/sdkconfig.h \
- C:\Users\LiuZeshu\Documents\Arduino\libraries\ESP32-BLE-Keyboard/BleConnectionStatus.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/BLEServer.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/bt/host/bluedroid/api/include/api/esp_gatts_api.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/bt/host/bluedroid/api/include/api/esp_bt_defs.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/bt/host/bluedroid/api/include/api/esp_gatt_defs.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/esp_common/include/esp_err.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/esp_common/include/esp_compiler.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/BLEUUID.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/bt/host/bluedroid/api/include/api/esp_gatt_defs.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/BLEAdvertising.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/bt/host/bluedroid/api/include/api/esp_gap_ble_api.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/RTOS.h \
+ c:\Users\LiuZeshu\Desktop\esp32_keyboard\bulid\sketch\scan.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/Arduino.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/esp_arduino_version.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/freertos/include/freertos/FreeRTOS.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/freertos/include/esp_additions/freertos/FreeRTOSConfig.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/esp_common/include/esp_compiler.h \
@@ -47,6 +35,8 @@ c:\Users\LiuZeshu\Desktop\esp32_keyboard\bulid\sketch\poker_keyboard.ino.cpp.o: 
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/esp_hw_support/include/soc/cpu.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/esp_hw_support/include/esp_cpu.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/hal/include/hal/cpu_hal.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/esp_common/include/esp_err.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/esp_common/include/esp_compiler.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/soc/esp32/include/soc/soc_caps.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/hal/include/hal/cpu_types.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/hal/esp32/include/hal/cpu_ll.h \
@@ -78,25 +68,6 @@ c:\Users\LiuZeshu\Desktop\esp32_keyboard\bulid\sketch\poker_keyboard.ino.cpp.o: 
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/freertos/include/freertos/semphr.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/freertos/include/freertos/queue.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/freertos/include/freertos/task.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/esp_ringbuf/include/freertos/ringbuf.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/freertos/include/freertos/queue.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/BLECharacteristic.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/BLEDescriptor.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/BLEValue.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/BLEService.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/BLEServer.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/BLESecurity.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/BLEAddress.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/BLE2902.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/BLECharacteristic.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/BLEHIDDevice.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/BLE2902.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/HIDTypes.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/Print.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/WString.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/pgmspace.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/Printable.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\Wire\src/Wire.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/esp32-hal.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/esp_hw_support/include/esp_sleep.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/hal/include/hal/touch_sensor_types.h \
@@ -106,13 +77,13 @@ c:\Users\LiuZeshu\Desktop\esp32_keyboard\bulid\sketch\poker_keyboard.ino.cpp.o: 
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/soc/esp32/include/soc/gpio_struct.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/soc/esp32/include/soc/gpio_reg.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/soc/esp32/include/soc/gpio_sig_map.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/freertos/include/freertos/queue.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/freertos/include/freertos/event_groups.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/freertos/include/freertos/timers.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/esp32-hal-log.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/log/include/esp_log.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/log/include/esp_log_internal.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/esp32-hal-matrix.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/esp32-hal.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/esp32-hal-uart.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/esp32-hal-gpio.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/esp32-hal-touch.h \
@@ -131,22 +102,22 @@ c:\Users\LiuZeshu\Desktop\esp32_keyboard\bulid\sketch\poker_keyboard.ino.cpp.o: 
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/esp32-hal-bt.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/esp32-hal-psram.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/esp32-hal-cpu.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/Stream.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/Print.h \
- c:\Users\LiuZeshu\Desktop\esp32_keyboard\bulid\sketch\keyboard_self.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/Arduino.h \
- C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/esp_arduino_version.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/esp8266-compat.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/stdlib_noniso.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/binary.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/WCharacter.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/WString.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/pgmspace.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/Stream.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/Print.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/Printable.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/IPAddress.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/WString.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/Printable.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/Client.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/Server.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/Udp.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/Stream.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/IPAddress.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/HardwareSerial.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/HWCDC.h \
@@ -158,4 +129,38 @@ c:\Users\LiuZeshu\Desktop\esp32_keyboard\bulid\sketch\poker_keyboard.ino.cpp.o: 
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/spi_flash/include/esp_spi_flash.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/spi_flash/include/esp_spi_flash_counters.h \
  C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\variants\esp32/pins_arduino.h \
- c:\Users\LiuZeshu\Desktop\esp32_keyboard\bulid\sketch\pcf8575.h
+ c:\Users\LiuZeshu\Desktop\esp32_keyboard\bulid\sketch\Layout.h \
+ C:\Users\LiuZeshu\Documents\Arduino\libraries\ESP32-BLE-Keyboard/BleKeyboard.h \
+ C:\Users\LiuZeshu\Documents\Arduino\libraries\ESP32-BLE-Keyboard/BleConnectionStatus.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/BLEServer.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/bt/host/bluedroid/api/include/api/esp_gatts_api.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/bt/host/bluedroid/api/include/api/esp_bt_defs.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/bt/host/bluedroid/api/include/api/esp_gatt_defs.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/BLEUUID.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/bt/host/bluedroid/api/include/api/esp_gatt_defs.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/BLEAdvertising.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/bt/host/bluedroid/api/include/api/esp_gap_ble_api.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/RTOS.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2/tools/sdk/esp32/include/esp_ringbuf/include/freertos/ringbuf.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/BLECharacteristic.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/BLEDescriptor.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/BLEValue.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/BLEService.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/BLEServer.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/BLESecurity.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/BLEAddress.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/BLE2902.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/BLECharacteristic.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/BLEHIDDevice.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/BLE2902.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\BLE\src/HIDTypes.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/Print.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\libraries\Wire\src/Wire.h \
+ C:\Users\LiuZeshu\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.2\cores\esp32/esp32-hal.h \
+ c:\Users\LiuZeshu\Desktop\esp32_keyboard\bulid\sketch\keyboard_self.h \
+ c:\Users\LiuZeshu\Desktop\esp32_keyboard\bulid\sketch\pcf8575.h \
+ c:\Users\LiuZeshu\Desktop\esp32_keyboard\bulid\sketch\joker_usb.h \
+ c:\Users\LiuZeshu\Desktop\esp32_keyboard\bulid\sketch\oled_buff.h \
+ C:\Users\LiuZeshu\Documents\Arduino\libraries\arduino_69132\src/SSD1306Wire.h \
+ C:\Users\LiuZeshu\Documents\Arduino\libraries\arduino_69132\src/OLEDDisplay.h \
+ C:\Users\LiuZeshu\Documents\Arduino\libraries\arduino_69132\src/OLEDDisplayFonts.h

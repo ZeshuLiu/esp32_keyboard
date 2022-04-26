@@ -26,6 +26,11 @@
   },
   {
     "Sourcefile": "c:\\Users\\LiuZeshu\\Desktop\\esp32_keyboard\\bulid\\sketch\\poker_keyboard.ino.cpp",
+    "Include": "SSD1306Wire.h",
+    "Includepath": "C:\\Users\\LiuZeshu\\Documents\\Arduino\\libraries\\arduino_69132\\src"
+  },
+  {
+    "Sourcefile": "c:\\Users\\LiuZeshu\\Desktop\\esp32_keyboard\\bulid\\sketch\\poker_keyboard.ino.cpp",
     "Include": "",
     "Includepath": null
   },
@@ -191,6 +196,16 @@
   },
   {
     "Sourcefile": "C:\\Users\\LiuZeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.2\\libraries\\Wire\\src\\Wire.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\LiuZeshu\\Documents\\Arduino\\libraries\\arduino_69132\\src\\OLEDDisplay.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\LiuZeshu\\Documents\\Arduino\\libraries\\arduino_69132\\src\\OLEDDisplayUi.cpp",
     "Include": "",
     "Includepath": null
   }
