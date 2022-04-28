@@ -3,11 +3,11 @@
 
 bool DBG_KEYBOARD = 1;
 
-# define DeviceName "Joker_KEY" //设备名
+# define DeviceName "Joker_" //设备名
 # define Manufacturer "Liu"        //设备制造商
 # define DevicePower 100             //电量
 
-# define DFT_BOOT_MODE 0 //0是usb，1是蓝牙
+int DFT_BOOT_MODE = 0; //0是usb，1是蓝牙
 
 # define number_in 8
 # define number_out 8

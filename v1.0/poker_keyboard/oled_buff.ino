@@ -1,5 +1,5 @@
 #include "oled_buff.h"
-
+# include "Pic.h"
 # define HEIGHT_WORDS 9 
 
 void Oled_Start(void){    // 开启oled显示
@@ -9,17 +9,21 @@ void Oled_Start(void){    // 开启oled显示
 }
 
 void LineDisp(String to_print,int line, bool if_clear){
-    display.clear();
     if (if_clear){
         for(int i=0; i<buff_size; i++){
-        Line_Buff[i] = "";
-    }
+            Line_Buff[i] = "";
+        }
     }
     Line_Buff[line] = to_print;
-    for(int i=0; i<buff_size; i++){
-        display.drawString(0, HEIGHT_WORDS*i ,Line_Buff[i]);
+
+    if(oled_mode == 0){
+        display.clear();
+
+        for(int i=0; i<buff_size; i++){
+            display.drawString(0, HEIGHT_WORDS*i ,Line_Buff[i]);
+        }
+        display.display();
     }
-    display.display();
 }
 
 void invert_disp(bool if_invert){
@@ -36,4 +40,12 @@ void invert_disp(bool if_invert){
         }
     }
     
+}
+
+void draw_dog(){
+    if (oled_mode==1){
+        display.clear(); //for Clearing the display
+        display.drawXbm(0, 0, 128, 64, dog_bmp);
+        display.display();
+    }
 }

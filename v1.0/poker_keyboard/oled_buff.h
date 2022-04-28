@@ -7,6 +7,7 @@
 
 # define ble_line 0
 # define fn_line 1
+int oled_mode = 0; // 0-字符 1-图片
 
 String Line_Buff[6] = {} ;
 #define buff_size 6
@@ -16,4 +17,5 @@ void invert_disp(bool);
 
 void LineDisp(String to_print,int line, bool if_clear=0);
 void Oled_Start(void);
+void draw_dog();
 #endif

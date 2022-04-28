@@ -54,11 +54,13 @@ void bt_work(void *pvParameters){
   if(DBG_KEYBOARD){
         Serial.println("Starting BLE work!");
   }
-
+  LineDisp("-------BLE------", ble_line);
+  vTaskDelay(1000);
   bleKeyboard.begin();//Start blekeyboard service
   LineDisp("Waiting for BLE", ble_line);
   
-bool start_flag = 0;
+  bool start_flag = 0;
+  
 //循环扫描
 for (;;){
   if (bleKeyboard.isConnected()){//连接上
@@ -86,7 +88,29 @@ for (;;){
           close_inter_led();
         }
       }//LED 控制
-            
+      
+      //MODE 控制
+      if((key_press[MODE_ROW][MODE_COL]==0)&&(old_key_press[MODE_ROW][MODE_COL]==1)){ // 第一次按下
+        bt_to_change_mode = 1; 
+        bt_chang_mode_time = millis();
+        LineDisp("<MODE>===========CHG", ble_line);
+      }
+      if ((key_press[MODE_ROW][MODE_COL]==0)&&bt_to_change_mode&&((millis()-bt_chang_mode_time)>3000)){//连续按压了三秒以上
+        bt_to_change_mode = 0;
+        joker_bt2usb();
+        LineDisp("<MODE>===========LIS", ble_line);
+      }
+      if(bt_to_change_mode&&(key_press[MODE_ROW][MODE_COL]==1)){//三秒内放开
+        bt_to_change_mode = 0;
+        LineDisp("<MODE>===========BLE", ble_line);
+      }
+      //MODE 控制
+
+      //重置倒计时
+      if ((key_press[cnt_rst_ROW][cnt_rst_COL]==0)&&(old_key_press[cnt_rst_ROW][cnt_rst_COL]==1)){ 
+        rst_cnt_time = 1;
+      }
+      //重置倒计时
     }
     //PN第一次按下
     if(start_flag&&(pn_stat==0)&&(key_press[PN_ROW][PN_COL] == 0)){//PN第一次按下
@@ -106,8 +130,9 @@ for (;;){
       }
       pn_stat = 0;
     }//pn第一次松开
-    
-    if (start_flag&&(key_press[FN_ROW][FN_COL]==0)&&(fn_stat==0)){ // FN 第一次被按下
+
+    // FN 第一次被按下
+    if (start_flag&&(key_press[FN_ROW][FN_COL]==0)&&(fn_stat==0)){ 
       if (DBG_KEYBOARD){
         Serial.println("FN IS ON !");
       }
@@ -207,4 +232,15 @@ bool joker_bt_start(){
         return 1;
     }
     return 0;
+}
+
+void joker_bt2usb(){
+    Serial.println("CHANGING MODE!");
+    bleKeyboard.end();
+    joker_usb_start();
+    if(BT_TASK_Handle!=NULL){
+        BT_TASK_Handle = NULL;
+        Serial.println("BT TASK DELETE");
+        vTaskDelete(BT_TASK_Handle);
+    }
 }

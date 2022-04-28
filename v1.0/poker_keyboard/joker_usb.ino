@@ -42,9 +42,12 @@ void joker_usb_work(void *pvParameters){
             if ((key_press[LED_ROW][LED_COL]==0)&&(old_key_press[LED_ROW][LED_COL]==1)){ //LED 控制
                 if(!LED_STAT){
                     open_inter_led();
+                    oled_mode = 1;
+                    draw_dog();
                 }
                 else{
                     close_inter_led();
+                    oled_mode = 0;
                 }
             }//LED 控制
 
@@ -238,12 +241,10 @@ bool joker_usb_start(){
 
 void joker_usb2bt(){
     Serial.println("CHANGING MODE!");
+    joker_bt_start();
     if(USB_TASK_Handle!=NULL){
-        vTaskDelete(USB_TASK_Handle);
         USB_TASK_Handle = NULL;
         Serial.println("USB TASK DELETE");
+        vTaskDelete(USB_TASK_Handle);
     }
-    
-    delay(1000);
-    joker_bt_start();
 }

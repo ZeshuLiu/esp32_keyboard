@@ -13,7 +13,18 @@
 			"xutility": "cpp",
 			"memory": "cpp",
 			"shared_mutex": "cpp",
-			"mutex": "cpp"
+			"mutex": "cpp",
+			"*.tcc": "cpp",
+			"deque": "cpp",
+			"forward_list": "cpp",
+			"list": "cpp",
+			"unordered_map": "cpp",
+			"unordered_set": "cpp",
+			"system_error": "cpp",
+			"atomic": "cpp",
+			"ios": "cpp",
+			"xhash": "cpp",
+			"xiosbase": "cpp"
 		}
 	}
 }

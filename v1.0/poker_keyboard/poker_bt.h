@@ -18,6 +18,8 @@ bool joker_bt_start();
 
 bool bt_stat = 0;
 bool iw[2] = {0,0};
+bool bt_to_change_mode = 0;
+int bt_chang_mode_time;
 
 
 # endif
