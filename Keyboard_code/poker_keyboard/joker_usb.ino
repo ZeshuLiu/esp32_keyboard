@@ -3,8 +3,9 @@
 #include "oled_buff.h"
 #include "keyboard_self.h"
 #include "poker_bt.h"
+#include "save.h"
+#include "esp32-hal.h"
 
-#define USB_TASK_DELAY 4
 
 void joker_usb_test(){
     if (key_code[2] == 0x00){
@@ -31,28 +32,41 @@ void joker_usb_work(void *pvParameters){
     }
     LineDisp("<MODE>===========USB", ble_line);
     LineDisp("<FN>----------------------------OFF", fn_line);
+    display.drawString(0, ble_line*8 ,"<MODE>===========USB");
+    display.display();
+    int start_time = micros();
     
     for (;;){
-        int start_time = micros();
+        
 
         key_scan();
 
         //PN按下
         if(pn_stat){//pn被按下
-            if ((key_press[LED_ROW][LED_COL]==0)&&(old_key_press[LED_ROW][LED_COL]==1)){ //LED 控制
+            if ((key_press[LED_ROW][LED_COL]==0)&&(filter_key_press[LED_ROW][LED_COL]==1)){ //LED 控制
                 if(!LED_STAT){
                     open_inter_led();
+                    //draw_dog();
+                }
+                else{
+                    close_inter_led();
+                }
+            }//LED 控制
+
+            //画dog
+            if ((key_press[DOG_ROW][DOG_COL]==0)&&(filter_key_press[DOG_ROW][DOG_COL]==1)){ 
+                if(oled_mode!=1){
                     oled_mode = 1;
                     draw_dog();
                 }
                 else{
-                    close_inter_led();
                     oled_mode = 0;
                 }
-            }//LED 控制
+            }
+            //dog结束
 
             //MODE 控制
-            if((key_press[MODE_ROW][MODE_COL]==0)&&(old_key_press[MODE_ROW][MODE_COL]==1)){ // 第一次按下
+            if((key_press[MODE_ROW][MODE_COL]==0)&&(filter_key_press[MODE_ROW][MODE_COL]==1)){ // 第一次按下
                 USB_to_change_mode = 1; 
                 USB_chang_mode_time = millis();
                 LineDisp("<MODE>===========CHG", ble_line);
@@ -69,7 +83,7 @@ void joker_usb_work(void *pvParameters){
             //MODE 控制
 
             //重置倒计时
-            if ((key_press[cnt_rst_ROW][cnt_rst_COL]==0)&&(old_key_press[cnt_rst_ROW][cnt_rst_COL]==1)){ 
+            if ((key_press[cnt_rst_ROW][cnt_rst_COL]==0)&&(filter_key_press[cnt_rst_ROW][cnt_rst_COL]==1)){ 
                 rst_cnt_time = 1;
             }
             //重置倒计时
@@ -128,6 +142,7 @@ void joker_usb_work(void *pvParameters){
             LineDisp("<FN>----------------------------OFF", fn_line);
             fn_stat = 0;
 
+            /*
             for (int ROW = 0; ROW < number_out; ROW++){//行循环判断
                 for (int COL = 0; COL < number_in; COL++){//列循环
                     if((old_key_press[ROW][COL]==0)&&(key_press[ROW][COL]==0)&&(USB_LayOut_ALL[ROW][COL]!=USB_LayOut_ALL_FN[ROW][COL])){//键被按下，且此键的键值在fn按下后发生了变化
@@ -143,12 +158,29 @@ void joker_usb_work(void *pvParameters){
                     }//松开fn改变键值结束
                 }
             }
+            */
+             for (int ROW = 0; ROW < number_out; ROW++){//行循环判断
+                for (int COL = 0; COL < number_in; COL++){//列循环
+                    if((old_key_press[ROW][COL]==0)&&(key_press[ROW][COL]==0)&&(USB_LayOut_ALL[ROW][COL]!=USB_LayOut_ALL_FN[ROW][COL])){//键被按下，且此键的键值在fn按下后发生了变化
+                        usb_send = 1;
+                        if(USB_LayOut_ALL[ROW][COL]!=USB_LayOut_words[ROW][COL]){//是第一位的键值
+                                key_code[0] = key_code[0]&(!USB_LayOut_ALL[ROW][COL]);
+                        }//是第一位的键值
+
+                        else{//是正常的键值
+                            words_change(USB_LayOut_words_FN[ROW][COL],1); //松开是fn的键值
+                        }//是正常的键值
+                    }//松开fn改变键值结束
+                }
+            }
+           
         }//fn第一次松开结束
         
+
         //循环赋值
         for (int ROW = 0; ROW < number_out; ROW++){//循环赋值
             for (int COL = 0; COL < number_in; COL++){
-                if (start_flag && (old_key_press[ROW][COL]!=key_press[ROW][COL]) &&(!pn_stat)){//键值变化且pn没有按下
+                if (start_flag && (old_key_press[ROW][COL]!=key_press[ROW][COL]) && (filter_key_press[ROW][COL]==key_press[ROW][COL]) &&(!pn_stat)){//键值变化且pn没有按下 并且连续两次按下的一样
                         usb_send = 1;
                     if(USB_LayOut_ALL[ROW][COL]!=USB_LayOut_words[ROW][COL]){//是第一位的键值
                         if(key_press[ROW][COL]==0){//按下
@@ -183,16 +215,27 @@ void joker_usb_work(void *pvParameters){
             }//列结束   
         }//行结束
        
+       if(!start_flag){
+            for (int i = 0; i < number_out; i++){
+                for (int j = 0; j < number_in; j++){
+                    old_key_press[i][j] = key_press[i][j]; //如果通过了消抖则赋值
+                    filter_key_press[i][j] = key_press[i][j]; //无论是否消抖都和前一样赋值
+                } 
+            }//新旧赋值结束
+            start_flag = 1;
+        }
+        
         //新旧赋值
         for (int i = 0; i < number_out; i++){
             for (int j = 0; j < number_in; j++){
-                old_key_press[i][j] = key_press[i][j];
+                if (filter_key_press[i][j]==key_press[i][j]){
+                     old_key_press[i][j] = key_press[i][j]; //如果通过了消抖则赋值
+                }
+                filter_key_press[i][j] = key_press[i][j]; //无论是否消抖都和前一样赋值
             } 
         }//新旧赋值结束
 
-        if(!start_flag){
-            start_flag = 1;
-        }
+        
         //发送按键
         if (usb_send){
             Serial2.write(key_code,8);
@@ -201,8 +244,10 @@ void joker_usb_work(void *pvParameters){
             if (DBG_KEYBOARD){
                 Serial.println("sending:" + String(key_code[0]));
                 Serial.println("Time:" + String(micros()-start_time));
+                
             } 
         }
+        start_time = micros();
         #ifdef USB_TASK_DELAY
         vTaskDelay(USB_TASK_DELAY);
         #endif
@@ -232,13 +277,16 @@ void words_change(uint8_t word_name, bool stat){
 
 
 bool joker_usb_start(){
+    disableCore0WDT();
     xReturned_usb = xTaskCreatePinnedToCore(joker_usb_work, "JOKER USB WORK", USB_TASK_STACK, NULL, USB_TASK_PRI, &USB_TASK_Handle, USB_TASK_CORE) ; 
     if(xReturned_usb == pdPASS){
+        Serial.println("Usb Started!");
         return 1;
     }
     return 0;
 }
 
+/*
 void joker_usb2bt(){
     Serial.println("CHANGING MODE!");
     joker_bt_start();
@@ -247,4 +295,11 @@ void joker_usb2bt(){
         Serial.println("USB TASK DELETE");
         vTaskDelete(USB_TASK_Handle);
     }
+}
+*/
+
+void joker_usb2bt(){
+    Keyboard_Config.BOOT_MODE = 1;
+    save_config();
+    ESP.restart();
 }

@@ -1,11 +1,11 @@
-#include "oled_buff.h"
+# include "oled_buff.h"
 # include "Pic.h"
 # define HEIGHT_WORDS 9 
 
 void Oled_Start(void){    // 开启oled显示
   display.init();
   display.flipScreenVertically();
-  
+  display.setBrightness(OLED_BRIGHT);
 }
 
 void LineDisp(String to_print,int line, bool if_clear){

@@ -1,5 +1,5 @@
 {
-    "port": "COM6",
+    "port": "COM4",
     "configuration": "PSRAM=disabled,PartitionScheme=default_8MB,CPUFreq=240,FlashMode=qio,FlashFreq=80,FlashSize=8M,UploadSpeed=512000,LoopCore=1,EventsCore=0,DebugLevel=none",
     "board": "esp32:esp32:esp32",
     "sketch": "v1.0\\poker_keyboard\\poker_keyboard.ino",

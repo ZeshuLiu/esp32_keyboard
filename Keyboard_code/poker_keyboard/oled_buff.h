@@ -4,6 +4,8 @@
 # include <SSD1306Wire.h>
 # define SDA 21
 # define SCL 22
+# define OLED_BRIGHT 127
+
 
 # define ble_line 0
 # define fn_line 1

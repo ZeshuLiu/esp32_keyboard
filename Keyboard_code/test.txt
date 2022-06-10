@@ -1,0 +1,23 @@
+test !!!!if
+working? 
+yes 
+why reboot?
+no idea
+oled not working
+
+seems worked
+but no dog
+
+dog is good
+here 弄
+我觉得这个东西不见得有什么问题
+oled 显示有问题了
+不知道为什么
+
+去掉了延时之后
+queshi gengjai跟手了，但是不知为什么oled有问题
+每个人都希望他好用
+好了现在
+
+修好了OLED显示功能，同时提高了轮询率。
+good！

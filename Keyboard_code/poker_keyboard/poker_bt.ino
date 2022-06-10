@@ -2,6 +2,7 @@
 #include "oled_buff.h"
 #include "keyboard_self.h"
 #include "joker_usb.h"
+#include "save.h"
 
 BleKeyboard bleKeyboard(DeviceName, Manufacturer, DevicePower);
 
@@ -57,22 +58,30 @@ void bt_work(void *pvParameters){
   LineDisp("-------BLE------", ble_line);
   vTaskDelay(1000);
   bleKeyboard.begin();//Start blekeyboard service
+  Keyboard_Config.BOOT_MODE = 0;
+  save_config();
   LineDisp("Waiting for BLE", ble_line);
+  display.drawString(0, ble_line*8 ,"Waiting for BLE");
   
   bool start_flag = 0;
   
 //循环扫描
 for (;;){
   if (bleKeyboard.isConnected()){//连接上
+    
     bt_stat = 1;
 
      //第一次先赋值
 
     if (!start_flag){
       Serial.println("connected!");
+      display.drawString(0, ble_line*8 ,"<MODE>===========BLE");
+      display.display();
       //LineDisp(">========BLE========<", ble_line);
       LineDisp("<MODE>===========BLE", ble_line);
       LineDisp("<FN>-------------------------OFF", fn_line);
+      Keyboard_Config.BOOT_MODE = 1;
+      save_config();
     }
     
     //扫描
@@ -200,18 +209,27 @@ for (;;){
         
       }//列循环
     }//行循环   
-      //新旧赋值
-      for (int i = 0; i < number_out; i++){
-        for (int j = 0; j < number_in; j++){
-          old_key_press[i][j] = key_press[i][j];
-        } 
-      }//新旧赋值结束
     
-      if(!start_flag){
-        start_flag = 1;
-      }
+      //新旧赋值
+        for (int i = 0; i < number_out; i++){
+            for (int j = 0; j < number_in; j++){
+                if (filter_key_press[i][j]==key_press[i][j]){
+                     old_key_press[i][j] = key_press[i][j]; //如果通过了消抖则赋值
+                }
+                filter_key_press[i][j] = key_press[i][j]; //无论是否消抖都和前一样赋值
+            } 
+        }//新旧赋值结束
 
-
+        
+      if (!start_flag){
+      start_flag = 1;
+      for (int i = 0; i < number_out; i++){
+            for (int j = 0; j < number_in; j++){
+                old_key_press[i][j] = key_press[i][j]; //如果通过了消抖则赋值
+                filter_key_press[i][j] = key_press[i][j]; //无论是否消抖都和前一样赋值
+            } 
+        }//新旧赋值结束
+    }
 
   } //连接上
   else{
@@ -234,6 +252,7 @@ bool joker_bt_start(){
     return 0;
 }
 
+/*
 void joker_bt2usb(){
     Serial.println("CHANGING MODE!");
     bleKeyboard.end();
@@ -243,4 +262,12 @@ void joker_bt2usb(){
         Serial.println("BT TASK DELETE");
         vTaskDelete(BT_TASK_Handle);
     }
+}
+*/
+
+void joker_bt2usb(){
+    Serial.println("CHANGING MODE!");
+    Keyboard_Config.BOOT_MODE = 0; 
+    save_config();
+    ESP.restart();
 }

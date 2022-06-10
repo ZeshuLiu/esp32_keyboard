@@ -1,6 +1,5 @@
 # include "keyboard_self.h"
 # include "poker_keyboard.h"
-# include "pcf8575.h"
 # include "oled_buff.h"
 
 
@@ -10,7 +9,7 @@ void keyboard_setup(){
   pinMode(LED_PIN,OUTPUT);
   open_inter_led();
   invert_disp(1);
-  delay(1000);
+  delay(100);
   close_inter_led();
   invert_disp(0);
 }
@@ -22,38 +21,6 @@ void open_inter_led(){
 void close_inter_led(){
   digitalWrite(LED_PIN,LOW);
   LED_STAT = 0;
-}
-
-void open_i2c_keyboard_led(){
-    if ((write_low&LED_PIN)!=0){//高电平
-      write_low = write_low&(~LED_PIN);
-      pcf8575_writeAll(word(B11111111,write_low));
-    }
-    Serial.println("LED ON");
-    LED_STAT = 1;
-}
-
-void close_i2c_keyboard_led(){
-    write_low = write_low|LED_PIN;
-    pcf8575_writeAll(word(B11111111,write_low));
-    Serial.println("LED OFF");
-    LED_STAT = 0;
-}
-
-void open_i2c_caps_led(){
-    if ((write_low&CAP_LED_PIN)!=0){//高电平
-      write_low = write_low&(~CAP_LED_PIN);
-      pcf8575_writeAll(word(B11111111,write_low));
-    }
-    Serial.println("CAP ON");
-    CAP_LED_STAT = 1;
-}
-
-void close_i2c_caps_led(){
-    write_low = write_low|CAP_LED_PIN;
-    pcf8575_writeAll(word(B11111111,write_low));
-    Serial.println("CAP OFF");
-    CAP_LED_STAT = 0;
 }
 
 void cnt_work(void *pvParameters){
