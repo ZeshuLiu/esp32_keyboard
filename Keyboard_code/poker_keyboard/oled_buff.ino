@@ -1,14 +1,18 @@
+#ifdef Joker
 # include "oled_buff.h"
 # include "Pic.h"
 # define HEIGHT_WORDS 9 
 
 void Oled_Start(void){    // 开启oled显示
+  
   display.init();
   display.flipScreenVertically();
   display.setBrightness(OLED_BRIGHT);
+
 }
 
 void LineDisp(String to_print,int line, bool if_clear){
+    #ifdef Joker
     if (if_clear){
         for(int i=0; i<buff_size; i++){
             Line_Buff[i] = "";
@@ -24,9 +28,11 @@ void LineDisp(String to_print,int line, bool if_clear){
         }
         display.display();
     }
+    #endif
 }
 
 void invert_disp(bool if_invert){
+    #ifdef Joker
     if (!if_invert){//不反向
         if (oled_invert){//是反向
             display.normalDisplay();
@@ -39,13 +45,17 @@ void invert_disp(bool if_invert){
             oled_invert = 1;
         }
     }
-    
+    #endif
 }
 
 void draw_dog(){
+    #ifdef Joker
     if (oled_mode==1){
         display.clear(); //for Clearing the display
         display.drawXbm(0, 0, 128, 64, dog_bmp);
         display.display();
     }
+    #endif
 }
+
+#endif

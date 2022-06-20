@@ -3,7 +3,25 @@
 
 #include <BleKeyboard.h>
 #include "poker_keyboard.h"
+#include "USB_CODE.h"
 
+//Select Model
+///#define Joker
+#define MasterYoda
+
+
+//Joker Layout Start
+#ifdef Joker
+
+//定义键盘输入输出引脚
+int key_pin_in[8] = {25,26,32,33,34,35,36,39};
+int key_pin_out[8] = {2,4,13,14,18,19,23,27};
+# define number_in 8
+# define number_out 8
+//定义键盘读取数组
+int key_press[number_out][number_in] = {};
+int old_key_press[number_out][number_in] = {};
+int filter_key_press[number_out][number_in] = {};
 #define KEY_FN 0
 #define KEY_PN 0
 //定义fn、pn键位置
@@ -23,32 +41,7 @@
 # define DOG_COL 3
 
 
-// bt
-//Poker Layout
-/*
-uint8_t LayOut_ALL[number_out][number_in] = {
-    {KEY_S,KEY_LEFT_SHIFT,KEY_5,KEY_R,KEY_9,KEY_8,KEY_BACKSPACE,KEY_RIGHT_CTRL}, //0
-    {KEY_Q,KEY_LEFT_GUI,KEY_N,KEY_D,KEY_SEMICOLON,KEY_M,KEY_SUB,KEY_LBRACKET}, //1
-    {KEY_X,KEY_CAPS_LOCK,KEY_T,KEY_F,KEY_L,KEY_I,0,KEY_PN}, //2
-    {KEY_LEFT_ALT,KEY_SEPARATOR,KEY_G,KEY_V,KEY_FULLSTOP,KEY_K,0,KEY_FSLASH}, //3
-    {KEY_1,KEY_LEFT_CTRL,KEY_H,KEY_E,KEY_0,KEY_J,KEY_EQUAL,KEY_SQUOTES}, //4
-    {KEY_W,KEY_Z,KEY_6,KEY_4,KEY_O,KEY_7,KEY_BSLASH,KEY_RIGHT_SHIFT},//5
-    {KEY_2,KEY_A,KEY_Y,KEY_3,KEY_P,KEY_U,KEY_RBRACKET,KEY_RETURN},//6
-    {KEY_C,KEY_TAB,KEY_B,KEY_SPACE,KEY_RIGHT_ALT,KEY_COMMA,0,KEY_FN},//7
-};
-uint8_t LayOut_ALL_FN[number_out][number_in] = {
-    {KEY_DOWN_ARROW,KEY_LEFT_SHIFT,KEY_F5,KEY_R,KEY_F9,KEY_F8,KEY_DELETE,KEY_RIGHT_CTRL}, //0
-    {KEY_Q,KEY_LEFT_GUI,KEY_N,KEY_RIGHT_ARROW,KEY_SEMICOLON,KEY_M,KEY_F11,KEY_LBRACKET}, //1
-    {KEY_X,KEY_CAPS_LOCK,KEY_T,KEY_F,KEY_L,KEY_I,0,KEY_PN},//2
-    {KEY_LEFT_ALT,KEY_ESC,KEY_G,KEY_V,KEY_FULLSTOP,KEY_K,0,KEY_FSLASH}, //3
-    {KEY_F1,KEY_LEFT_CTRL,KEY_H,KEY_E,KEY_F10,KEY_J,KEY_F12,KEY_SQUOTES}, //4
-    {KEY_UP_ARROW,KEY_Z,KEY_F6,KEY_F4,KEY_O,KEY_F7,KEY_BSLASH,KEY_RIGHT_SHIFT},//5
-    {KEY_F2,KEY_LEFT_ARROW,KEY_Y,KEY_F3,KEY_P,KEY_U,KEY_RBRACKET,KEY_RETURN},//6
-    {KEY_C,KEY_TAB,KEY_B,KEY_SPACE,KEY_RIGHT_ALT,KEY_COMMA,0,KEY_FN},//7
-};
-*/
-
-//Joker Layout
+//BT
 uint8_t LayOut_ALL[number_out][number_in] = {
     {KEY_S,KEY_LEFT_SHIFT,KEY_5,KEY_R,KEY_9,KEY_8,KEY_BACKSPACE,KEY_RIGHT_ARROW}, //0
     {KEY_Q,KEY_LEFT_ALT,KEY_N,KEY_D,KEY_SEMICOLON,KEY_M,KEY_SUB,KEY_LBRACKET}, //1
@@ -71,138 +64,8 @@ uint8_t LayOut_ALL_FN[number_out][number_in] = {
 };
 //BT END
 
+
 //USB
-#define KEY_USB_A 0x04 // a and A
-#define KEY_USB_B 0x05 // b and B
-#define KEY_USB_C 0x06 // c and C
-#define KEY_USB_D 0x07 // d and D
-#define KEY_USB_E 0x08 // e and E
-#define KEY_USB_F 0x09 // f and F
-#define KEY_USB_G 0x0A // g and G
-#define KEY_USB_H 0x0B // h and H
-#define KEY_USB_I 0x0C // i and I
-#define KEY_USB_J 0x0D // j and J
-#define KEY_USB_K 0x0E // k and K
-#define KEY_USB_L 0x0F // l and L
-#define KEY_USB_M 0x10 // m and M
-#define KEY_USB_N 0x11 // n and N
-#define KEY_USB_O 0x12 // o and O
-#define KEY_USB_P 0x13 // p and P
-#define KEY_USB_Q 0x14 // q and Q
-#define KEY_USB_R 0x15 // r and R
-#define KEY_USB_S 0x16 // s and S
-#define KEY_USB_T 0x17 // t and T
-#define KEY_USB_U 0x18 // u and U
-#define KEY_USB_V 0x19 // v and V
-#define KEY_USB_W 0x1A // w and W
-#define KEY_USB_X 0x1B // x and X
-#define KEY_USB_Y 0x1C // y and Y
-#define KEY_USB_Z 0x1D // z and Z
-#define KEY_USB_1 0x1E // 1 and !
-#define KEY_USB_2 0x1F // 2 and @
-#define KEY_USB_3 0x20 // 3 and #
-#define KEY_USB_4 0x21 // 4 and $
-#define KEY_USB_5 0x22 // 5 and %
-#define KEY_USB_6 0x23 // 6 and ^
-#define KEY_USB_7 0x24 // 7 and &
-#define KEY_USB_8 0x25 // 8 and *
-#define KEY_USB_9 0x26 // 9 and (
-#define KEY_USB_0 0x27 // 0 and )
-
-#define KEY_USB_BACKSPACE 0x2A   // Backspace
-#define KEY_USB_TAB 0x2B         // Tab
-#define KEY_USB_SPACE 0x2C       // Space(空格)
-#define KEY_USB_SUB 0x2D         // - and _
-#define KEY_USB_EQUAL 0x2E       // = and +
-#define KEY_USB_LBRACKET 0x2F    // [ and {
-#define KEY_USB_RBRACKET 0x30    // ] and }
-#define KEY_USB_BSLASH 0x31      // \ and |
-#define KEY_USB_SEMICOLON 0x33   // ; and :
-#define KEY_USB_SQUOTES 0x34     // ' and "
-#define KEY_USB_SEPARATOR 0x35   // ` and ~
-#define KEY_USB_COMMA 0x36       // , and <
-#define KEY_USB_FSTOP 0x37       // . and >
-#define KEY_USB_FSLASH 0x38      // / and ?
-#define KEY_USB_CAPS_LOCK 0x39   // CapsLock
-#define KEY_USB_ENTER 0x58       // Return(ENTER)
-#define KEY_USB_HOME 0x4A        // Home
-#define KEY_USB_RETURN 0x58      // Return(ENTER)
-#define KEY_USB_LEFT_CTRL 0x01   // LeftControl(左CTRL)
-#define KEY_USB_LEFT_SHIFT 0x02  // LeftShift(左Shift)
-#define KEY_USB_LEFT_ALT 0x04    // LeftAlt(左Alt)
-#define KEY_USB_LEFT_GUI 0x08    // LeftGUI(左GUI)
-#define KEY_USB_RIGHT_CTRL 0x10  // RightControl(右CTRL)
-#define KEY_USB_RIGHT_SHIFT 0x20 // RightShift(右Shift)
-#define KEY_USB_RIGHT_ALT 0x40   // RightAlt(右Alt)
-#define KEY_USB_RIGHT_GUI 0x80   // RightGUI(右GUI)
-#define KEY_USB_MENU 0x65        //Menu
-
-#define KEY_USB_ESC 0x29         // ESC
-#define KEY_USB_F1 0x3A          // F1(按下Fn键才可以使用)
-#define KEY_USB_F2 0x3B          // F2
-#define KEY_USB_F3 0x3C          // F3
-#define KEY_USB_F4 0x3D          // F4
-#define KEY_USB_F5 0x3E          // F5
-#define KEY_USB_F6 0x3F          // F6
-#define KEY_USB_F7 0x40          // F7
-#define KEY_USB_F8 0x41          // F8
-#define KEY_USB_F9 0x42          // F9
-#define KEY_USB_F10 0x43         // F10
-#define KEY_USB_F11 0x44         // F11
-#define KEY_USB_F12 0x45         // F12
-#define KEY_USB_F13 0x46         // F13
-#define KEY_USB_DELETE 0x4C      // DELETE
-#define KEY_USB_RIGHT_ARROW 0x4F // →
-#define KEY_USB_LEFT_ARROW 0x50  // ←
-#define KEY_USB_DOWN_ARROW 0x51  // ↓
-#define KEY_USB_UP_ARROW 0x52    // ↑
-
-//Poker Layout
-/*
-uint8_t USB_LayOut_ALL[number_out][number_in] = {
-    {KEY_USB_S,KEY_USB_LEFT_SHIFT,KEY_USB_5,KEY_USB_R,KEY_USB_9,KEY_USB_8,KEY_USB_BACKSPACE,KEY_USB_RIGHT_CTRL}, //0
-    {KEY_USB_Q,KEY_USB_LEFT_GUI,KEY_USB_N,KEY_USB_D,KEY_USB_SEMICOLON,KEY_USB_M,KEY_USB_SUB,KEY_USB_LBRACKET}, //1
-    {KEY_USB_X,KEY_USB_CAPS_LOCK,KEY_USB_T,KEY_USB_F,KEY_USB_L,KEY_USB_I,0,KEY_PN}, //2
-    {KEY_USB_LEFT_ALT,KEY_USB_SEPARATOR,KEY_USB_G,KEY_USB_V,KEY_USB_FSTOP,KEY_USB_K,0,KEY_USB_FSLASH}, //3
-    {KEY_USB_1,KEY_USB_LEFT_CTRL,KEY_USB_H,KEY_USB_E,KEY_USB_0,KEY_USB_J,KEY_USB_EQUAL,KEY_USB_SQUOTES}, //4
-    {KEY_USB_W,KEY_USB_Z,KEY_USB_6,KEY_USB_4,KEY_USB_O,KEY_USB_7,KEY_USB_BSLASH,KEY_USB_RIGHT_SHIFT},//5
-    {KEY_USB_2,KEY_USB_A,KEY_USB_Y,KEY_USB_3,KEY_USB_P,KEY_USB_U,KEY_USB_RBRACKET,KEY_USB_RETURN},//6
-    {KEY_USB_C,KEY_USB_TAB,KEY_USB_B,KEY_USB_SPACE,KEY_USB_RIGHT_ALT,KEY_USB_COMMA,0,KEY_FN},//7
-};
-uint8_t USB_LayOut_words[number_out][number_in] = {
-    {KEY_USB_S,0,KEY_USB_5,KEY_USB_R,KEY_USB_9,KEY_USB_8,KEY_USB_BACKSPACE,0}, //0
-    {KEY_USB_Q,0,KEY_USB_N,KEY_USB_D,KEY_USB_SEMICOLON,KEY_USB_M,KEY_USB_SUB,KEY_USB_LBRACKET}, //1
-    {KEY_USB_X,KEY_USB_CAPS_LOCK,KEY_USB_T,KEY_USB_F,KEY_USB_L,KEY_USB_I,0,KEY_PN}, //2
-    {0,KEY_USB_SEPARATOR,KEY_USB_G,KEY_USB_V,KEY_USB_FSTOP,KEY_USB_K,0,KEY_USB_FSLASH}, //3
-    {KEY_USB_1,0,KEY_USB_H,KEY_USB_E,KEY_USB_0,KEY_USB_J,KEY_USB_EQUAL,KEY_USB_SQUOTES}, //4
-    {KEY_USB_W,KEY_USB_Z,KEY_USB_6,KEY_USB_4,KEY_USB_O,KEY_USB_7,KEY_USB_BSLASH,0},//5
-    {KEY_USB_2,KEY_USB_A,KEY_USB_Y,KEY_USB_3,KEY_USB_P,KEY_USB_U,KEY_USB_RBRACKET,KEY_USB_RETURN},//6
-    {KEY_USB_C,KEY_USB_TAB,KEY_USB_B,KEY_USB_SPACE,0,KEY_USB_COMMA,0,KEY_FN},//7
-};
-
-uint8_t USB_LayOut_ALL_FN[number_out][number_in] = {
-    {KEY_USB_DOWN_ARROW,KEY_USB_LEFT_SHIFT,KEY_USB_F5,KEY_USB_R,KEY_USB_F9,KEY_USB_F8,KEY_USB_DELETE,KEY_USB_RIGHT_CTRL}, //0
-    {KEY_USB_Q,KEY_USB_LEFT_GUI,KEY_USB_N,KEY_USB_RIGHT_ARROW,KEY_USB_SEMICOLON,KEY_USB_M,KEY_USB_F11,KEY_USB_LBRACKET}, //1
-    {KEY_USB_X,KEY_USB_CAPS_LOCK,KEY_USB_T,KEY_USB_F,KEY_USB_L,KEY_USB_I,0,KEY_PN},//2
-    {KEY_USB_LEFT_ALT,KEY_USB_ESC,KEY_USB_G,KEY_USB_V,KEY_USB_FSTOP,KEY_USB_K,0,KEY_USB_FSLASH}, //3
-    {KEY_USB_F1,KEY_USB_LEFT_CTRL,KEY_USB_H,KEY_USB_E,KEY_USB_F10,KEY_USB_J,KEY_USB_F12,KEY_USB_SQUOTES}, //4
-    {KEY_USB_UP_ARROW,KEY_USB_Z,KEY_USB_F6,KEY_USB_F4,KEY_USB_O,KEY_USB_F7,KEY_USB_BSLASH,KEY_USB_RIGHT_SHIFT},//5
-    {KEY_USB_F2,KEY_USB_LEFT_ARROW,KEY_USB_Y,KEY_USB_F3,KEY_USB_P,KEY_USB_U,KEY_USB_RBRACKET,KEY_USB_RETURN},//6
-    {KEY_USB_C,KEY_USB_TAB,KEY_USB_B,KEY_USB_SPACE,KEY_USB_RIGHT_ALT,KEY_USB_COMMA,0,KEY_FN},//7
-};
-uint8_t USB_LayOut_words_FN[number_out][number_in] = {
-    {KEY_USB_DOWN_ARROW,0,KEY_USB_F5,KEY_USB_R,KEY_USB_F9,KEY_USB_F8,KEY_USB_DELETE,0}, //0
-    {KEY_USB_Q,0,KEY_USB_N,KEY_USB_RIGHT_ARROW,KEY_USB_SEMICOLON,KEY_USB_M,KEY_USB_F11,KEY_USB_LBRACKET}, //1
-    {KEY_USB_X,KEY_USB_CAPS_LOCK,KEY_USB_T,KEY_USB_F,KEY_USB_L,KEY_USB_I,0,KEY_PN},//2
-    {0,KEY_USB_ESC,KEY_USB_G,KEY_USB_V,KEY_USB_FSTOP,KEY_USB_K,0,KEY_USB_FSLASH}, //3
-    {KEY_USB_F1,0,KEY_USB_H,KEY_USB_E,KEY_USB_F10,KEY_USB_J,KEY_USB_F12,KEY_USB_SQUOTES}, //4
-    {KEY_USB_UP_ARROW,KEY_USB_Z,KEY_USB_F6,KEY_USB_F4,KEY_USB_O,KEY_USB_F7,KEY_USB_BSLASH,0},//5
-    {KEY_USB_F2,KEY_USB_LEFT_ARROW,KEY_USB_Y,KEY_USB_F3,KEY_USB_P,KEY_USB_U,KEY_USB_RBRACKET,KEY_USB_RETURN},//6
-    {KEY_USB_C,KEY_USB_TAB,KEY_USB_B,KEY_USB_SPACE,0,KEY_USB_COMMA,0,KEY_FN},//7
-};
-*/
-
-// Joker LayOut
 uint8_t USB_LayOut_ALL[number_out][number_in] = {
     {KEY_USB_S,KEY_USB_LEFT_SHIFT,KEY_USB_5,KEY_USB_R,KEY_USB_9,KEY_USB_8,KEY_USB_BACKSPACE,KEY_USB_RIGHT_ARROW}, //0
     {KEY_USB_Q,KEY_USB_LEFT_ALT,KEY_USB_N,KEY_USB_D,KEY_USB_SEMICOLON,KEY_USB_M,KEY_USB_SUB,KEY_USB_LBRACKET}, //1
@@ -244,4 +107,91 @@ uint8_t USB_LayOut_words_FN[number_out][number_in] = {
     {KEY_USB_F2,0,KEY_USB_Y,KEY_USB_F3,KEY_USB_P,KEY_USB_U,KEY_USB_RBRACKET,KEY_USB_RETURN},//6
     {KEY_USB_C,KEY_USB_TAB,KEY_USB_B,KEY_USB_SPACE,KEY_PN,KEY_USB_COMMA,0,KEY_USB_LEFT_ARROW},//7
 };
+#endif
+// Joker Layout End
+
+
+
+//MasterYoda Layout Start
+#ifdef MasterYoda
+
+//定义键盘输入输出引脚
+int key_pin_in[5] = {36,39,34,35,32};
+int key_pin_out[4] = {23,19,18,4};
+# define number_in 5
+# define number_out 4
+//定义键盘读取数组
+int key_press[number_out][number_in] = {};
+int old_key_press[number_out][number_in] = {};
+int filter_key_press[number_out][number_in] = {};
+#define KEY_FN 0
+#define KEY_PN 0
+
+
+//定义fn、pn键位置
+# define FN_ROW 3
+# define FN_COL 2
+
+
+# define PN_ROW 7
+# define PN_COL 7
+
+/*
+//定义pn功能位置
+# define LED_ROW 2
+# define LED_COL 4
+# define MODE_ROW 1
+# define MODE_COL 5
+# define cnt_rst_ROW 7
+# define cnt_rst_COL 0
+# define DOG_ROW 1
+# define DOG_COL 3
+*/
+
+
+//BT
+uint8_t LayOut_ALL[number_out][number_in] = {
+    {0,KEY_1,KEY_2,KEY_3,KEY_4}, //0
+    {KEY_TAB,KEY_Q,KEY_W,KEY_E,KEY_R}, //1
+    {KEY_LEFT_CTRL,KEY_A,KEY_S,KEY_D,KEY_F}, //2
+    {KEY_ESC,KEY_LEFT_SHIFT,KEY_FN,0,KEY_SPACE}, //3
+};
+uint8_t LayOut_ALL_FN[number_out][number_in] = {
+    {KEY_S,KEY_LEFT_SHIFT,KEY_5,KEY_R,KEY_9}, //0
+    {KEY_Q,KEY_LEFT_ALT,KEY_N,KEY_D,KEY_SEMICOLON}, //1
+    {KEY_X,KEY_LEFT_CTRL,KEY_T,KEY_F,KEY_L}, //2
+    {KEY_FN,KEY_ESC,KEY_G,KEY_V,KEY_FULLSTOP}, //3
+};
+//BT END
+
+
+//USB
+uint8_t USB_LayOut_ALL[number_out][number_in] = {
+    {0,KEY_USB_1,KEY_USB_2,KEY_USB_3,KEY_USB_4}, //0
+    {KEY_USB_TAB,KEY_USB_Q,KEY_USB_W,KEY_USB_E,KEY_USB_R}, //1
+    {KEY_USB_LEFT_CTRL,KEY_USB_A,KEY_USB_S,KEY_USB_D,KEY_USB_F}, //2
+    {KEY_USB_ESC,KEY_USB_LEFT_SHIFT,KEY_FN,0,KEY_USB_SPACE}, //3
+};
+uint8_t USB_LayOut_words[number_out][number_in] = {
+    {0,KEY_USB_1,KEY_USB_2,KEY_USB_3,KEY_USB_4}, //0
+    {KEY_USB_TAB,KEY_USB_Q,KEY_USB_W,KEY_USB_E,KEY_USB_R}, //1
+    {0,KEY_USB_A,KEY_USB_S,KEY_USB_D,KEY_USB_F}, //2
+    {KEY_USB_ESC,0,KEY_FN,0,KEY_USB_SPACE}, //3
+};
+
+uint8_t USB_LayOut_ALL_FN[number_out][number_in] = {
+    {0,KEY_USB_1,KEY_USB_2,KEY_USB_3,KEY_USB_4}, //0
+    {KEY_USB_TAB,KEY_USB_Q,KEY_USB_W,KEY_USB_E,KEY_USB_R}, //1
+    {KEY_USB_LEFT_CTRL,KEY_USB_A,KEY_USB_S,KEY_USB_D,KEY_USB_F}, //2
+    {KEY_USB_ESC,KEY_USB_LEFT_SHIFT,KEY_FN,0,KEY_USB_SPACE}, //3
+};
+uint8_t USB_LayOut_words_FN[number_out][number_in] = {
+    {0,KEY_USB_1,KEY_USB_2,KEY_USB_3,KEY_USB_4}, //0
+    {KEY_USB_TAB,KEY_USB_Q,KEY_USB_W,KEY_USB_E,KEY_USB_R}, //1
+    {KEY_USB_LEFT_CTRL,KEY_USB_A,KEY_USB_S,KEY_USB_D,KEY_USB_F}, //2
+    {KEY_USB_ESC,KEY_USB_LEFT_SHIFT,KEY_FN,0,KEY_USB_SPACE}, //3
+};
+#endif
+// MasterYoda Layout End
+
 #endif

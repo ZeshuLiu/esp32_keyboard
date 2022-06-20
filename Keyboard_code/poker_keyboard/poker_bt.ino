@@ -55,14 +55,17 @@ void bt_work(void *pvParameters){
   if(DBG_KEYBOARD){
         Serial.println("Starting BLE work!");
   }
+  #ifdef Joker
   LineDisp("-------BLE------", ble_line);
+  #endif
   vTaskDelay(1000);
   bleKeyboard.begin();//Start blekeyboard service
   Keyboard_Config.BOOT_MODE = 0;
   save_config();
+  #ifdef Joker
   LineDisp("Waiting for BLE", ble_line);
   display.drawString(0, ble_line*8 ,"Waiting for BLE");
-  
+  #endif
   bool start_flag = 0;
   
 //循环扫描
@@ -75,11 +78,13 @@ for (;;){
 
     if (!start_flag){
       Serial.println("connected!");
+      #ifdef Joker
       display.drawString(0, ble_line*8 ,"<MODE>===========BLE");
       display.display();
       //LineDisp(">========BLE========<", ble_line);
       LineDisp("<MODE>===========BLE", ble_line);
       LineDisp("<FN>-------------------------OFF", fn_line);
+      #endif
       Keyboard_Config.BOOT_MODE = 1;
       save_config();
     }
@@ -87,6 +92,8 @@ for (;;){
     //扫描
     key_scan();
 
+    //PN位置
+    #ifdef Joker
     //PN按下
     if(pn_stat){//pn被按下
       if ((key_press[LED_ROW][LED_COL]==0)&&(old_key_press[LED_ROW][LED_COL]==1)){ //LED 控制
@@ -139,13 +146,16 @@ for (;;){
       }
       pn_stat = 0;
     }//pn第一次松开
+    #endif
 
     // FN 第一次被按下
     if (start_flag&&(key_press[FN_ROW][FN_COL]==0)&&(fn_stat==0)){ 
       if (DBG_KEYBOARD){
         Serial.println("FN IS ON !");
       }
+      #ifdef Joker
       LineDisp("<FN>--------------------------ON", fn_line);
+      #endif
       fn_stat = 1;
 
       for (int ROW = 0; ROW < number_out; ROW++){//行循环判断
@@ -162,7 +172,9 @@ for (;;){
       if (DBG_KEYBOARD){
         Serial.println("FN IS OFF !");
       }
+      #ifdef Joker
       LineDisp("<FN>-------------------------OFF", fn_line);
+      #endif
       fn_stat = 0;
 
       for (int ROW = 0; ROW < number_out; ROW++){//行循环判断
@@ -213,10 +225,10 @@ for (;;){
       //新旧赋值
         for (int i = 0; i < number_out; i++){
             for (int j = 0; j < number_in; j++){
-                if (filter_key_press[i][j]==key_press[i][j]){
+                if (old_key_press[i][j]==key_press[i][j]){
                      old_key_press[i][j] = key_press[i][j]; //如果通过了消抖则赋值
                 }
-                filter_key_press[i][j] = key_press[i][j]; //无论是否消抖都和前一样赋值
+                old_key_press[i][j] = key_press[i][j]; //无论是否消抖都和前一样赋值
             } 
         }//新旧赋值结束
 
@@ -226,7 +238,7 @@ for (;;){
       for (int i = 0; i < number_out; i++){
             for (int j = 0; j < number_in; j++){
                 old_key_press[i][j] = key_press[i][j]; //如果通过了消抖则赋值
-                filter_key_press[i][j] = key_press[i][j]; //无论是否消抖都和前一样赋值
+                old_key_press[i][j] = key_press[i][j]; //无论是否消抖都和前一样赋值
             } 
         }//新旧赋值结束
     }

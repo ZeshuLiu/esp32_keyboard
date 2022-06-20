@@ -2,6 +2,8 @@
 #define OLED_BUFF_H
 # include <Wire.h>
 # include <SSD1306Wire.h>
+
+# ifdef Joker
 # define SDA 21
 # define SCL 22
 # define OLED_BRIGHT 127
@@ -20,4 +22,6 @@ void invert_disp(bool);
 void LineDisp(String to_print,int line, bool if_clear=0);
 void Oled_Start(void);
 void draw_dog();
+
+#endif
 #endif

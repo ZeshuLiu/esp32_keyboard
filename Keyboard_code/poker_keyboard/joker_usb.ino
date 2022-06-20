@@ -5,6 +5,7 @@
 #include "poker_bt.h"
 #include "save.h"
 #include "esp32-hal.h"
+#include "Layout.h"
 
 
 void joker_usb_test(){
@@ -30,10 +31,14 @@ void joker_usb_work(void *pvParameters){
     {
         key_code[i] = 0x00;
     }
+
+    #ifdef Joker
     LineDisp("<MODE>===========USB", ble_line);
     LineDisp("<FN>----------------------------OFF", fn_line);
     display.drawString(0, ble_line*8 ,"<MODE>===========USB");
     display.display();
+    #endif
+
     int start_time = micros();
     
     for (;;){
@@ -41,9 +46,11 @@ void joker_usb_work(void *pvParameters){
 
         key_scan();
 
+        //PN位置
+        #ifdef Joker
         //PN按下
         if(pn_stat){//pn被按下
-            if ((key_press[LED_ROW][LED_COL]==0)&&(filter_key_press[LED_ROW][LED_COL]==1)){ //LED 控制
+            if ((key_press[LED_ROW][LED_COL]==0)&&(old_key_press[LED_ROW][LED_COL]==1)){ //LED 控制
                 if(!LED_STAT){
                     open_inter_led();
                     //draw_dog();
@@ -54,7 +61,7 @@ void joker_usb_work(void *pvParameters){
             }//LED 控制
 
             //画dog
-            if ((key_press[DOG_ROW][DOG_COL]==0)&&(filter_key_press[DOG_ROW][DOG_COL]==1)){ 
+            if ((key_press[DOG_ROW][DOG_COL]==0)&&(old_key_press[DOG_ROW][DOG_COL]==1)){ 
                 if(oled_mode!=1){
                     oled_mode = 1;
                     draw_dog();
@@ -66,7 +73,7 @@ void joker_usb_work(void *pvParameters){
             //dog结束
 
             //MODE 控制
-            if((key_press[MODE_ROW][MODE_COL]==0)&&(filter_key_press[MODE_ROW][MODE_COL]==1)){ // 第一次按下
+            if((key_press[MODE_ROW][MODE_COL]==0)&&(old_key_press[MODE_ROW][MODE_COL]==1)){ // 第一次按下
                 USB_to_change_mode = 1; 
                 USB_chang_mode_time = millis();
                 LineDisp("<MODE>===========CHG", ble_line);
@@ -83,7 +90,7 @@ void joker_usb_work(void *pvParameters){
             //MODE 控制
 
             //重置倒计时
-            if ((key_press[cnt_rst_ROW][cnt_rst_COL]==0)&&(filter_key_press[cnt_rst_ROW][cnt_rst_COL]==1)){ 
+            if ((key_press[cnt_rst_ROW][cnt_rst_COL]==0)&&(old_key_press[cnt_rst_ROW][cnt_rst_COL]==1)){ 
                 rst_cnt_time = 1;
             }
             //重置倒计时
@@ -110,13 +117,16 @@ void joker_usb_work(void *pvParameters){
             pn_stat = 0;
             USB_to_change_mode = 0;
         }//pn第一次松开
+        #endif
 
         // FN 第一次被按下
         if (start_flag&&(key_press[FN_ROW][FN_COL]==0)&&(fn_stat==0)){ 
             if (DBG_KEYBOARD){
             Serial.println("FN IS ON !");
             }
+            #ifdef Joker
             LineDisp("<FN>-----------------------------ON", fn_line);
+            #endif
             fn_stat = 1;
             for (int ROW = 0; ROW < number_out; ROW++){//行循环判断
                 for (int COL = 0; COL < number_in; COL++){//列循环
@@ -139,7 +149,9 @@ void joker_usb_work(void *pvParameters){
             if (DBG_KEYBOARD){
                 Serial.println("FN IS OFF !");
             }
+            #ifdef Joker
             LineDisp("<FN>----------------------------OFF", fn_line);
+            #endif
             fn_stat = 0;
 
             /*
@@ -180,7 +192,7 @@ void joker_usb_work(void *pvParameters){
         //循环赋值
         for (int ROW = 0; ROW < number_out; ROW++){//循环赋值
             for (int COL = 0; COL < number_in; COL++){
-                if (start_flag && (old_key_press[ROW][COL]!=key_press[ROW][COL]) && (filter_key_press[ROW][COL]==key_press[ROW][COL]) &&(!pn_stat)){//键值变化且pn没有按下 并且连续两次按下的一样
+                if (start_flag && (old_key_press[ROW][COL]!=key_press[ROW][COL]) &&(!pn_stat)){//键值变化且pn没有按下 并且连续两次按下的一样
                         usb_send = 1;
                     if(USB_LayOut_ALL[ROW][COL]!=USB_LayOut_words[ROW][COL]){//是第一位的键值
                         if(key_press[ROW][COL]==0){//按下
@@ -219,7 +231,6 @@ void joker_usb_work(void *pvParameters){
             for (int i = 0; i < number_out; i++){
                 for (int j = 0; j < number_in; j++){
                     old_key_press[i][j] = key_press[i][j]; //如果通过了消抖则赋值
-                    filter_key_press[i][j] = key_press[i][j]; //无论是否消抖都和前一样赋值
                 } 
             }//新旧赋值结束
             start_flag = 1;
@@ -228,10 +239,7 @@ void joker_usb_work(void *pvParameters){
         //新旧赋值
         for (int i = 0; i < number_out; i++){
             for (int j = 0; j < number_in; j++){
-                if (filter_key_press[i][j]==key_press[i][j]){
-                     old_key_press[i][j] = key_press[i][j]; //如果通过了消抖则赋值
-                }
-                filter_key_press[i][j] = key_press[i][j]; //无论是否消抖都和前一样赋值
+                 old_key_press[i][j] = key_press[i][j]; //赋值
             } 
         }//新旧赋值结束
 

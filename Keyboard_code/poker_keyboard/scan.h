@@ -2,7 +2,8 @@
 #define SCAN_H
 
 #include "poker_keyboard.h"
-# include <Arduino.h>
+#include <Arduino.h>
+#include "Layout.h"
 //定义键盘输入输出引脚
 /*
 int key_pin_in[8] = {25,26,32,33,34,35,36,39};
@@ -21,5 +22,5 @@ bool fn_stat = 0;
 bool pn_stat = 0;
 void scan_start();
 void key_scan();
-
+void key_scan_once();
 #endif

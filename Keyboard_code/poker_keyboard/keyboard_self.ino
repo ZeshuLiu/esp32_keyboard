@@ -1,17 +1,35 @@
 # include "keyboard_self.h"
 # include "poker_keyboard.h"
 # include "oled_buff.h"
+# include "Layout.h"
+# include "Seg_disp.h"
 
 
 void keyboard_setup(){
-  //初始化io扩展
-  //pcf8575_begin();
+  //Joker SETUP
+  #ifdef Joker
+  //Flash LED
   pinMode(LED_PIN,OUTPUT);
   open_inter_led();
-  invert_disp(1);
   delay(100);
   close_inter_led();
+  
+  //OLED Display
+  Oled_Start();
+  invert_disp(1);
+  LineDisp("      Joker 60 by LiuZS      ",3);
+  LineDisp("====Started!====",0);
+  //LineDisp("                              1.0",4);
+  delay(200);
   invert_disp(0);
+  LineDisp(" ",3);
+  #endif
+
+  //Master Yoda SETUP
+  #ifdef MasterYoda
+  //INIT DISP
+  init_seg();
+  #endif
 }
 
 void open_inter_led(){
@@ -24,6 +42,7 @@ void close_inter_led(){
 }
 
 void cnt_work(void *pvParameters){
+  #ifdef Joker
   int start_time = millis();
   int time_pass;
   int cnt_down;
@@ -45,15 +64,19 @@ void cnt_work(void *pvParameters){
       invert_disp(0);
     }
     vTaskDelay(1000);
+    
   }
+  #endif
 }
 
 bool cnt_start(){
+  #ifdef Joker
   xReturned_cnt = xTaskCreatePinnedToCore(cnt_work, "JOKER CNT WORK", CNT_TASK_STACK, NULL, CNT_TASK_PRI, &CNT_TASK_Handle, CNT_TASK_CORE) ; 
   if(xReturned_cnt == pdPASS){
     return 1;
   }
   return 0;
+  #endif
 }
 
 
