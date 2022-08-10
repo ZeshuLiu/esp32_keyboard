@@ -3,7 +3,7 @@
 #include "Layout.h"
 bool DBG_KEYBOARD = 1;
 
-#ifdef JOker
+#ifdef Joker
 # define DeviceName "Joker_60" //设备名
 #endif
 

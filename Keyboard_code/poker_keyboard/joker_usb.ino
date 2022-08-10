@@ -40,6 +40,7 @@ void joker_usb_work(void *pvParameters){
     #endif
 
     int start_time = micros();
+    vTaskDelay(1);
     
     for (;;){
         
@@ -171,7 +172,8 @@ void joker_usb_work(void *pvParameters){
                 }
             }
             */
-             for (int ROW = 0; ROW < number_out; ROW++){//行循环判断
+
+            /*for (int ROW = 0; ROW < number_out; ROW++){//行循环判断
                 for (int COL = 0; COL < number_in; COL++){//列循环
                     if((old_key_press[ROW][COL]==0)&&(key_press[ROW][COL]==0)&&(USB_LayOut_ALL[ROW][COL]!=USB_LayOut_ALL_FN[ROW][COL])){//键被按下，且此键的键值在fn按下后发生了变化
                         usb_send = 1;
@@ -184,8 +186,15 @@ void joker_usb_work(void *pvParameters){
                         }//是正常的键值
                     }//松开fn改变键值结束
                 }
-            }
+            }//行循环判断
+            */
            
+            // 松开fn后将所有键值清零
+            usb_send = 1;
+            for (int i = 0; i < 8; i++){
+                key_code[i] = 0x00;
+            }
+
         }//fn第一次松开结束
         
 

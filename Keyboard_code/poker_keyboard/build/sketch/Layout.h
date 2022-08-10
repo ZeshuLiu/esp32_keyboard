@@ -7,8 +7,8 @@
 #include "USB_CODE.h"
 
 //Select Model
-///#define Joker
-#define MasterYoda
+#define Joker
+//#define MasterYoda
 
 
 //Joker Layout Start

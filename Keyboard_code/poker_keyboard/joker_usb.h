@@ -10,7 +10,7 @@ TaskHandle_t USB_TASK_Handle = NULL;
 #define USB_TASK_CORE 0
 #define USB_TASK_STACK 9192
 #define USB_TASK_PRI 4
-#define USB_TASK_DELAY 1
+//#define USB_TASK_DELAY 1
 
 uint8_t key_code[8] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 bool USB_to_change_mode = 0;

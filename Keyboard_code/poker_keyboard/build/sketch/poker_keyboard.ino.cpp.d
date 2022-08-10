@@ -165,10 +165,11 @@ g:\Data\开发\esp32_keyboard\Keyboard_code\poker_keyboard\build\sketch\poker_keyb
  g:\Data\开发\esp32_keyboard\Keyboard_code\poker_keyboard\build\sketch\pcf8575.h \
  g:\Data\开发\esp32_keyboard\Keyboard_code\poker_keyboard\build\sketch\joker_usb.h \
  g:\Data\开发\esp32_keyboard\Keyboard_code\poker_keyboard\build\sketch\save.h \
- g:\Data\开发\esp32_keyboard\Keyboard_code\poker_keyboard\build\sketch\Seg_disp.h \
- C:\Users\LiuZS\Documents\Arduino\libraries\Grove_4-Digit_Display/TM1637.h \
  g:\Data\开发\esp32_keyboard\Keyboard_code\poker_keyboard\build\sketch\oled_buff.h \
  C:\Users\LiuZS\Documents\Arduino\libraries\ESP8266_and_ESP32_OLED_driver_for_SSD1306_displays\src/SSD1306Wire.h \
  C:\Users\LiuZS\Documents\Arduino\libraries\ESP8266_and_ESP32_OLED_driver_for_SSD1306_displays\src/OLEDDisplay.h \
  C:\Users\LiuZS\Documents\Arduino\libraries\ESP8266_and_ESP32_OLED_driver_for_SSD1306_displays\src/OLEDDisplayFonts.h \
+ g:\Data\开发\esp32_keyboard\Keyboard_code\poker_keyboard\build\sketch\Seg_disp.h \
+ C:\Users\LiuZS\Documents\Arduino\libraries\Grove_4-Digit_Display/TM1637.h \
+ g:\Data\开发\esp32_keyboard\Keyboard_code\poker_keyboard\build\sketch\Pic.h \
  C:\Users\LiuZS\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.4\libraries\EEPROM\src/EEPROM.h

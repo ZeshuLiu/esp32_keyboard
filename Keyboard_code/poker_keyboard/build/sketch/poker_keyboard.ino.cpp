@@ -9,12 +9,15 @@
 # include "scan.h"
 # include "joker_usb.h"
 # include "save.h"
-# include "Seg_disp.h"
 # include "oled_buff.h"
 
-#line 14 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_keyboard.ino"
+#ifdef MasterYoda
+  # include "Seg_disp.h"
+#endif
+
+#line 17 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_keyboard.ino"
 void setup();
-#line 60 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_keyboard.ino"
+#line 63 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_keyboard.ino"
 void loop();
 #line 3 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\Seg_disp.ino"
 void init_seg();
@@ -22,11 +25,11 @@ void init_seg();
 void joker_usb_test();
 #line 27 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
 void joker_usb_work(void *pvParameters);
-#line 267 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
+#line 276 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
 void words_change(uint8_t word_name, bool stat);
-#line 287 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
+#line 296 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
 bool joker_usb_start();
-#line 309 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
+#line 318 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
 void joker_usb2bt();
 #line 8 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino"
 void keyboard_setup();
@@ -40,6 +43,14 @@ void cnt_work(void *pvParameters);
 bool cnt_start();
 #line 83 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino"
 void keyboard_device_test();
+#line 6 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino"
+void Oled_Start(void);
+#line 14 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino"
+void LineDisp(String to_print,int line, bool if_clear);
+#line 34 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino"
+void invert_disp(bool if_invert);
+#line 51 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino"
+void draw_dog();
 #line 3 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\pcf8575.ino"
 void pcf8575_begin();
 #line 7 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\pcf8575.ino"
@@ -52,7 +63,7 @@ void bt_test();
 void bt_work(void *pvParameters);
 #line 258 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_bt.ino"
 bool joker_bt_start();
-#line 280 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_bt.ino"
+#line 281 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_bt.ino"
 void joker_bt2usb();
 #line 4 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\save.ino"
 void save_config();
@@ -64,7 +75,7 @@ void scan_start();
 void key_scan_once();
 #line 43 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\scan.ino"
 void key_scan();
-#line 14 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_keyboard.ino"
+#line 17 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_keyboard.ino"
 void setup() {
   // DBG 设置
   Serial.begin(115200);
@@ -100,28 +111,31 @@ void setup() {
   //键盘硬件设置
   keyboard_setup();
   Serial.println("Joker setted up!");
-
+  delay(100);
   if(DFT_BOOT_MODE == 0){
     joker_usb_start();
     //joker_usb_work();
   }
   if(DFT_BOOT_MODE == 1){
-    //joker_bt_start();
-  }
-  //cnt_start();
+    joker_bt_start();
+  } 
+  cnt_start();
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-tm1637.display(2, (8));
+  delay(1000);// put your main code here, to run repeatedly:
+  #ifdef MasterYoda
+    tm1637.display(2, (8));
     tm1637.display(3, (8));
-  delay(1000);
+    
+  #endif
 }
 
 #line 1 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\Seg_disp.ino"
 #include "Seg_disp.h"
 
 void init_seg(){
+    #ifdef MasterYoda
     tm1637.init();
     tm1637.set(BRIGHT_TYPICAL);//BRIGHT_TYPICAL = 2,BRIGHT_DARKEST = 0,BRIGHTEST = 7;
     tm1637.display(0, (8));
@@ -131,6 +145,7 @@ void init_seg(){
     tm1637.point(0);
     Serial.println("Seg ON");
     delay(200);
+    #endif
 }
 #line 1 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
 #include "joker_usb.h"
@@ -175,6 +190,7 @@ void joker_usb_work(void *pvParameters){
     #endif
 
     int start_time = micros();
+    vTaskDelay(1);
     
     for (;;){
         
@@ -306,7 +322,8 @@ void joker_usb_work(void *pvParameters){
                 }
             }
             */
-             for (int ROW = 0; ROW < number_out; ROW++){//行循环判断
+
+            /*for (int ROW = 0; ROW < number_out; ROW++){//行循环判断
                 for (int COL = 0; COL < number_in; COL++){//列循环
                     if((old_key_press[ROW][COL]==0)&&(key_press[ROW][COL]==0)&&(USB_LayOut_ALL[ROW][COL]!=USB_LayOut_ALL_FN[ROW][COL])){//键被按下，且此键的键值在fn按下后发生了变化
                         usb_send = 1;
@@ -319,8 +336,15 @@ void joker_usb_work(void *pvParameters){
                         }//是正常的键值
                     }//松开fn改变键值结束
                 }
-            }
+            }//行循环判断
+            */
            
+            // 松开fn后将所有键值清零
+            usb_send = 1;
+            for (int i = 0; i < 8; i++){
+                key_code[i] = 0x00;
+            }
+
         }//fn第一次松开结束
         
 
@@ -880,7 +904,7 @@ for (;;){
 
   } //连接上
   else{
-    delay(10);//没连接上就等着
+    vTaskDelay(BT_TASK_DELAY);//没连接上就等着
   }
   #ifdef BT_TASK_DELAY
         vTaskDelay(BT_TASK_DELAY);
@@ -892,6 +916,7 @@ for (;;){
 
 bool joker_bt_start(){
     Serial.println("bt starting!");
+    disableCore0WDT();
     xReturned_bt = xTaskCreatePinnedToCore(bt_work, "JOKER BT WORK", BT_TASK_STACK, NULL, BT_TASK_PRI, &BT_TASK_Handle, BT_TASK_CORE) ; 
     if(xReturned_bt == pdPASS){
         return 1;
@@ -1006,14 +1031,14 @@ void key_scan(){
   } 
 
   //扫描
-  for (int i=0; i<3; i++){ //扫描三次
+  for (int i=0; i<5; i++){ //扫描三次
     key_scan_once();
   } //扫描结束
 
   //滤波
   for (int ROW = 0; ROW < number_out; ROW++){
     for (int COL = 0; COL < number_in; COL++){
-      key_press[ROW][COL] =  key_press[ROW][COL]/2;
+      key_press[ROW][COL] =  key_press[ROW][COL]/3;
     } 
   }//滤波结束
   

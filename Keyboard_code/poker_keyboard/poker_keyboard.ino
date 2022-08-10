@@ -8,8 +8,11 @@
 # include "scan.h"
 # include "joker_usb.h"
 # include "save.h"
-# include "Seg_disp.h"
 # include "oled_buff.h"
+
+#ifdef MasterYoda
+  # include "Seg_disp.h"
+#endif
 
 void setup() {
   // DBG 设置
@@ -46,20 +49,22 @@ void setup() {
   //键盘硬件设置
   keyboard_setup();
   Serial.println("Joker setted up!");
-
+  delay(100);
   if(DFT_BOOT_MODE == 0){
     joker_usb_start();
     //joker_usb_work();
   }
   if(DFT_BOOT_MODE == 1){
-    //joker_bt_start();
-  }
-  //cnt_start();
+    joker_bt_start();
+  } 
+  cnt_start();
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-tm1637.display(2, (8));
+  delay(1000);// put your main code here, to run repeatedly:
+  #ifdef MasterYoda
+    tm1637.display(2, (8));
     tm1637.display(3, (8));
-  delay(1000);
+    
+  #endif
 }

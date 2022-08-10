@@ -245,7 +245,7 @@ for (;;){
 
   } //连接上
   else{
-    delay(10);//没连接上就等着
+    vTaskDelay(BT_TASK_DELAY);//没连接上就等着
   }
   #ifdef BT_TASK_DELAY
         vTaskDelay(BT_TASK_DELAY);
@@ -257,6 +257,7 @@ for (;;){
 
 bool joker_bt_start(){
     Serial.println("bt starting!");
+    disableCore0WDT();
     xReturned_bt = xTaskCreatePinnedToCore(bt_work, "JOKER BT WORK", BT_TASK_STACK, NULL, BT_TASK_PRI, &BT_TASK_Handle, BT_TASK_CORE) ; 
     if(xReturned_bt == pdPASS){
         return 1;
