@@ -2,230 +2,230 @@
   {
     "Sourcefile": null,
     "Include": "",
-    "Includepath": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\cores\\esp32"
+    "Includepath": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\cores\\esp32"
   },
   {
     "Sourcefile": null,
     "Include": "",
-    "Includepath": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\variants\\esp32"
+    "Includepath": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\variants\\esp32"
   },
   {
-    "Sourcefile": "d:\\Data\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\build\\sketch\\poker_keyboard.ino.cpp",
+    "Sourcefile": "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\build\\sketch\\poker_keyboard.ino.cpp",
     "Include": "BleKeyboard.h",
-    "Includepath": "C:\\Users\\liuzeshu\\Documents\\Arduino\\libraries\\ESP32-BLE-Keyboard"
+    "Includepath": "C:\\Program Files (x86)\\Arduino\\libraries\\ESP32-BLE-Keyboard"
   },
   {
-    "Sourcefile": "d:\\Data\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\build\\sketch\\poker_keyboard.ino.cpp",
+    "Sourcefile": "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\build\\sketch\\poker_keyboard.ino.cpp",
     "Include": "BLEServer.h",
-    "Includepath": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\BLE\\src"
+    "Includepath": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\BLE\\src"
   },
   {
-    "Sourcefile": "d:\\Data\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\build\\sketch\\poker_keyboard.ino.cpp",
+    "Sourcefile": "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\build\\sketch\\poker_keyboard.ino.cpp",
     "Include": "Wire.h",
-    "Includepath": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\Wire\\src"
+    "Includepath": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\Wire\\src"
   },
   {
-    "Sourcefile": "d:\\Data\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\build\\sketch\\poker_keyboard.ino.cpp",
+    "Sourcefile": "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\build\\sketch\\poker_keyboard.ino.cpp",
     "Include": "TM1637.h",
-    "Includepath": "C:\\Users\\liuzeshu\\Documents\\Arduino\\libraries\\Grove_4Digital_Display-master"
+    "Includepath": "C:\\Users\\LiuZS\\Documents\\Arduino\\libraries\\Grove_4-Digit_Display"
   },
   {
-    "Sourcefile": "d:\\Data\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\build\\sketch\\poker_keyboard.ino.cpp",
+    "Sourcefile": "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\build\\sketch\\poker_keyboard.ino.cpp",
     "Include": "SSD1306Wire.h",
-    "Includepath": "C:\\Users\\liuzeshu\\Documents\\Arduino\\libraries\\ESP8266_and_ESP32_OLED_driver_for_SSD1306_displays\\src"
+    "Includepath": "C:\\Users\\LiuZS\\Documents\\Arduino\\libraries\\ESP8266_and_ESP32_OLED_driver_for_SSD1306_displays\\src"
   },
   {
-    "Sourcefile": "d:\\Data\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\build\\sketch\\poker_keyboard.ino.cpp",
+    "Sourcefile": "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\build\\sketch\\poker_keyboard.ino.cpp",
     "Include": "EEPROM.h",
-    "Includepath": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\EEPROM\\src"
+    "Includepath": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\EEPROM\\src"
   },
   {
-    "Sourcefile": "d:\\Data\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\build\\sketch\\poker_keyboard.ino.cpp",
+    "Sourcefile": "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\build\\sketch\\poker_keyboard.ino.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\Documents\\Arduino\\libraries\\ESP32-BLE-Keyboard\\BleConnectionStatus.cpp",
+    "Sourcefile": "C:\\Program Files (x86)\\Arduino\\libraries\\ESP32-BLE-Keyboard\\BleConnectionStatus.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\Documents\\Arduino\\libraries\\ESP32-BLE-Keyboard\\BleKeyboard.cpp",
+    "Sourcefile": "C:\\Program Files (x86)\\Arduino\\libraries\\ESP32-BLE-Keyboard\\BleKeyboard.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\Documents\\Arduino\\libraries\\ESP32-BLE-Keyboard\\KeyboardOutputCallbacks.cpp",
+    "Sourcefile": "C:\\Program Files (x86)\\Arduino\\libraries\\ESP32-BLE-Keyboard\\KeyboardOutputCallbacks.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\BLE\\src\\BLE2902.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\BLE\\src\\BLE2902.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\BLE\\src\\BLE2904.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\BLE\\src\\BLE2904.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\BLE\\src\\BLEAddress.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\BLE\\src\\BLEAddress.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\BLE\\src\\BLEAdvertisedDevice.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\BLE\\src\\BLEAdvertisedDevice.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\BLE\\src\\BLEAdvertising.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\BLE\\src\\BLEAdvertising.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\BLE\\src\\BLEBeacon.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\BLE\\src\\BLEBeacon.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\BLE\\src\\BLECharacteristic.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\BLE\\src\\BLECharacteristic.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\BLE\\src\\BLECharacteristicMap.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\BLE\\src\\BLECharacteristicMap.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\BLE\\src\\BLEClient.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\BLE\\src\\BLEClient.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\BLE\\src\\BLEDescriptor.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\BLE\\src\\BLEDescriptor.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\BLE\\src\\BLEDescriptorMap.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\BLE\\src\\BLEDescriptorMap.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\BLE\\src\\BLEDevice.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\BLE\\src\\BLEDevice.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\BLE\\src\\BLEEddystoneTLM.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\BLE\\src\\BLEEddystoneTLM.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\BLE\\src\\BLEEddystoneURL.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\BLE\\src\\BLEEddystoneURL.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\BLE\\src\\BLEExceptions.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\BLE\\src\\BLEExceptions.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\BLE\\src\\BLEHIDDevice.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\BLE\\src\\BLEHIDDevice.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\BLE\\src\\BLERemoteCharacteristic.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\BLE\\src\\BLERemoteCharacteristic.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\BLE\\src\\BLERemoteDescriptor.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\BLE\\src\\BLERemoteDescriptor.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\BLE\\src\\BLERemoteService.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\BLE\\src\\BLERemoteService.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\BLE\\src\\BLEScan.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\BLE\\src\\BLEScan.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\BLE\\src\\BLESecurity.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\BLE\\src\\BLESecurity.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\BLE\\src\\BLEServer.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\BLE\\src\\BLEServer.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\BLE\\src\\BLEService.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\BLE\\src\\BLEService.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\BLE\\src\\BLEServiceMap.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\BLE\\src\\BLEServiceMap.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\BLE\\src\\BLEUUID.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\BLE\\src\\BLEUUID.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\BLE\\src\\BLEUtils.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\BLE\\src\\BLEUtils.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\BLE\\src\\BLEValue.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\BLE\\src\\BLEValue.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\BLE\\src\\FreeRTOS.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\BLE\\src\\FreeRTOS.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\BLE\\src\\GeneralUtils.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\BLE\\src\\GeneralUtils.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\Wire\\src\\Wire.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\Wire\\src\\Wire.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\Documents\\Arduino\\libraries\\Grove_4Digital_Display-master\\TM1637.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\Documents\\Arduino\\libraries\\Grove_4-Digit_Display\\TM1637.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\Documents\\Arduino\\libraries\\ESP8266_and_ESP32_OLED_driver_for_SSD1306_displays\\src\\OLEDDisplay.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\Documents\\Arduino\\libraries\\ESP8266_and_ESP32_OLED_driver_for_SSD1306_displays\\src\\OLEDDisplay.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\Documents\\Arduino\\libraries\\ESP8266_and_ESP32_OLED_driver_for_SSD1306_displays\\src\\OLEDDisplayUi.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\Documents\\Arduino\\libraries\\ESP8266_and_ESP32_OLED_driver_for_SSD1306_displays\\src\\OLEDDisplayUi.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\liuzeshu\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.3\\libraries\\EEPROM\\src\\EEPROM.cpp",
+    "Sourcefile": "C:\\Users\\LiuZS\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.4\\libraries\\EEPROM\\src\\EEPROM.cpp",
     "Include": "",
     "Includepath": null
   }

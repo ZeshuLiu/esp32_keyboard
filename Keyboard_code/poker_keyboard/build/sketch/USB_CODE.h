@@ -1,4 +1,4 @@
-#line 1 "d:\\Data\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\USB_CODE.h"
+#line 1 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\USB_CODE.h"
 //USB
 #define KEY_USB_A 0x04 // a and A
 #define KEY_USB_B 0x05 // b and B

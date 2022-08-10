@@ -1,4 +1,4 @@
-#line 1 "d:\\Data\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\Seg_disp.h"
+#line 1 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\Seg_disp.h"
 #ifndef SEG_DISP_H
 #define SEG_DISP_H
 #include "TM1637.h"
