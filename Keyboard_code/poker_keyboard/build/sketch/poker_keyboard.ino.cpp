@@ -43,13 +43,13 @@ void cnt_work(void *pvParameters);
 bool cnt_start();
 #line 83 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino"
 void keyboard_device_test();
-#line 6 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino"
+#line 7 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino"
 void Oled_Start(void);
-#line 14 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino"
+#line 16 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino"
 void LineDisp(String to_print,int line, bool if_clear);
-#line 34 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino"
+#line 36 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino"
 void invert_disp(bool if_invert);
-#line 51 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino"
+#line 53 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino"
 void draw_dog();
 #line 3 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\pcf8575.ino"
 void pcf8575_begin();
@@ -130,7 +130,6 @@ void loop() {
     
   #endif
 }
-
 #line 1 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\Seg_disp.ino"
 #include "Seg_disp.h"
 
@@ -185,12 +184,12 @@ void joker_usb_work(void *pvParameters){
     #ifdef Joker
     LineDisp("<MODE>===========USB", ble_line);
     LineDisp("<FN>----------------------------OFF", fn_line);
-    display.drawString(0, ble_line*8 ,"<MODE>===========USB");
-    display.display();
+    //display.drawString(0, ble_line*8 ,"<MODE>===========USB");
+    //display.display();
     #endif
 
     int start_time = micros();
-    vTaskDelay(1);
+    vTaskDelay(100);
     
     for (;;){
         
@@ -567,17 +566,19 @@ void keyboard_device_test(){
 
 
 #line 1 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino"
-#ifdef Joker
+# include "Layout.h"
+# ifdef Joker
 # include "oled_buff.h"
 # include "Pic.h"
 # define HEIGHT_WORDS 9 
 
 void Oled_Start(void){    // 开启oled显示
-  
   display.init();
   display.flipScreenVertically();
   display.setBrightness(OLED_BRIGHT);
-
+  Serial.println("Oled Up!");
+  display.clear();
+  delay(150);
 }
 
 void LineDisp(String to_print,int line, bool if_clear){
@@ -1031,14 +1032,14 @@ void key_scan(){
   } 
 
   //扫描
-  for (int i=0; i<5; i++){ //扫描三次
+  for (int i=0; i<5; i++){ //扫描5次
     key_scan_once();
   } //扫描结束
 
   //滤波
   for (int ROW = 0; ROW < number_out; ROW++){
     for (int COL = 0; COL < number_in; COL++){
-      key_press[ROW][COL] =  key_press[ROW][COL]/3;
+      key_press[ROW][COL] =  key_press[ROW][COL]/4; // >= 4次才改变
     } 
   }//滤波结束
   

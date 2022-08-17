@@ -49,14 +49,14 @@ void key_scan(){
   } 
 
   //扫描
-  for (int i=0; i<5; i++){ //扫描三次
+  for (int i=0; i<5; i++){ //扫描5次
     key_scan_once();
   } //扫描结束
 
   //滤波
   for (int ROW = 0; ROW < number_out; ROW++){
     for (int COL = 0; COL < number_in; COL++){
-      key_press[ROW][COL] =  key_press[ROW][COL]/3;
+      key_press[ROW][COL] =  key_press[ROW][COL]/4; // >= 4次才改变
     } 
   }//滤波结束
   

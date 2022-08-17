@@ -113,12 +113,12 @@ void joker_usb_work(void *pvParameters){
 
     LineDisp("<MODE>===========USB", 0);
     LineDisp("<FN>----------------------------OFF", 1);
-    display.drawString(0, 0*8 ,"<MODE>===========USB");
-    display.display();
+    //display.drawString(0, ble_line*8 ,"<MODE>===========USB");
+    //display.display();
 
 
     int start_time = micros();
-    vTaskDelay(1);
+    vTaskDelay(100);
 
     for (;;){
 
@@ -539,17 +539,19 @@ void keyboard_device_test(){
     open_i2c_caps_led();
 }
 # 1 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino"
+# 2 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino" 2
 
-# 3 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino" 2
 # 4 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino" 2
+# 5 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino" 2
 
 
 void Oled_Start(void){ // 开启oled显示
-
   display.init();
   display.flipScreenVertically();
   display.setBrightness(127);
-
+  Serial.println("Oled Up!");
+  display.clear();
+  delay(150);
 }
 
 void LineDisp(String to_print,int line, bool if_clear){
@@ -1022,14 +1024,14 @@ void key_scan(){
   }
 
   //扫描
-  for (int i=0; i<5; i++){ //扫描三次
+  for (int i=0; i<5; i++){ //扫描5次
     key_scan_once();
   } //扫描结束
 
   //滤波
   for (int ROW = 0; ROW < 8; ROW++){
     for (int COL = 0; COL < 8; COL++){
-      key_press[ROW][COL] = key_press[ROW][COL]/3;
+      key_press[ROW][COL] = key_press[ROW][COL]/4; // >= 4次才改变
     }
   }//滤波结束
 

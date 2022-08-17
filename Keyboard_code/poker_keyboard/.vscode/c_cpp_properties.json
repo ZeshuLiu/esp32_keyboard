@@ -271,7 +271,7 @@
                 "ARDUINO_VARIANT=\"esp32\"",
                 "ARDUINO_PARTITION_default_8MB",
                 "ESP32",
-                "CORE_DEBUG_LEVEL=5",
+                "CORE_DEBUG_LEVEL=2",
                 "ARDUINO_RUNNING_CORE=0",
                 "ARDUINO_EVENT_RUNNING_CORE=1",
                 "ARDUINO_USB_CDC_ON_BOOT=0",

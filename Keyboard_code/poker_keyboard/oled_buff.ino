@@ -1,14 +1,16 @@
-#ifdef Joker
+# include "Layout.h"
+# ifdef Joker
 # include "oled_buff.h"
 # include "Pic.h"
 # define HEIGHT_WORDS 9 
 
 void Oled_Start(void){    // 开启oled显示
-  
   display.init();
   display.flipScreenVertically();
   display.setBrightness(OLED_BRIGHT);
-
+  Serial.println("Oled Up!");
+  display.clear();
+  delay(150);
 }
 
 void LineDisp(String to_print,int line, bool if_clear){

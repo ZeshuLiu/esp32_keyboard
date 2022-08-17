@@ -3,6 +3,7 @@
 #define OLED_BUFF_H
 # include <Wire.h>
 # include <SSD1306Wire.h>
+# include "Layout.h"
 
 # ifdef Joker
 # define SDA 21
