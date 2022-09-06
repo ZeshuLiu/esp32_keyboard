@@ -1,15 +1,15 @@
-# 1 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_keyboard.ino"
-# 2 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_keyboard.ino" 2
-# 3 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_keyboard.ino" 2
+# 1 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_keyboard.ino"
+# 2 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_keyboard.ino" 2
+# 3 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_keyboard.ino" 2
 
-# 5 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_keyboard.ino" 2
-# 6 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_keyboard.ino" 2
-# 7 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_keyboard.ino" 2
-# 8 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_keyboard.ino" 2
-# 9 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_keyboard.ino" 2
-# 10 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_keyboard.ino" 2
-# 11 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_keyboard.ino" 2
-# 12 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_keyboard.ino" 2
+# 5 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_keyboard.ino" 2
+# 6 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_keyboard.ino" 2
+# 7 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_keyboard.ino" 2
+# 8 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_keyboard.ino" 2
+# 9 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_keyboard.ino" 2
+# 10 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_keyboard.ino" 2
+# 11 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_keyboard.ino" 2
+# 12 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_keyboard.ino" 2
 
 
 
@@ -69,21 +69,21 @@ void loop() {
 
 
 }
-# 1 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\Seg_disp.ino"
-# 2 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\Seg_disp.ino" 2
+# 1 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\Seg_disp.ino"
+# 2 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\Seg_disp.ino" 2
 
 void init_seg(){
-# 15 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\Seg_disp.ino"
+# 15 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\Seg_disp.ino"
 }
-# 1 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
-# 2 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino" 2
-# 3 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino" 2
-# 4 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino" 2
-# 5 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino" 2
-# 6 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino" 2
-# 7 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino" 2
-# 8 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino" 2
-# 9 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino" 2
+# 1 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
+# 2 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino" 2
+# 3 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino" 2
+# 4 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino" 2
+# 5 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino" 2
+# 6 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino" 2
+# 7 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino" 2
+# 8 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino" 2
+# 9 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino" 2
 
 
 void joker_usb_test(){
@@ -266,7 +266,7 @@ void joker_usb_work(void *pvParameters){
             }
 
             */
-# 176 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
+# 176 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
             /*for (int ROW = 0; ROW < number_out; ROW++){//行循环判断
 
                 for (int COL = 0; COL < number_in; COL++){//列循环
@@ -296,7 +296,7 @@ void joker_usb_work(void *pvParameters){
             }//行循环判断
 
             */
-# 192 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
+# 192 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
             // 松开fn后将所有键值清零
             usb_send = 1;
             for (int i = 0; i < 8; i++){
@@ -404,9 +404,9 @@ void words_change(uint8_t word_name, bool stat){
 bool joker_usb_start(){
     disableCore0WDT();
     xReturned_usb = xTaskCreatePinnedToCore(joker_usb_work, "JOKER USB WORK", 9192, 
-# 298 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino" 3 4
+# 298 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino" 3 4
                                                                                              __null
-# 298 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
+# 298 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
                                                                                                  , 4, &USB_TASK_Handle, 0) ;
     if(xReturned_usb == ( ( ( BaseType_t ) 1 ) )){
         Serial.println("Usb Started!");
@@ -436,25 +436,25 @@ void joker_usb2bt(){
 }
 
 */
-# 318 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
+# 318 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
 void joker_usb2bt(){
     Keyboard_Config.BOOT_MODE = 1;
     save_config();
     ESP.restart();
 }
-# 1 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino"
-# 2 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino" 2
-# 3 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino" 2
-# 4 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino" 2
-# 5 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino" 2
-# 6 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino" 2
+# 1 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino"
+# 2 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino" 2
+# 3 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino" 2
+# 4 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino" 2
+# 5 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino" 2
+# 6 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino" 2
 
 
 void keyboard_setup(){
   //Joker SETUP
 
   //Flash LED
-  pinMode(12,0x03);
+  pinMode(12,0x02);
   open_inter_led();
   delay(100);
   close_inter_led();
@@ -517,9 +517,9 @@ void cnt_work(void *pvParameters){
 bool cnt_start(){
 
   xReturned_cnt = xTaskCreatePinnedToCore(cnt_work, "JOKER CNT WORK", 2048, 
-# 74 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino" 3 4
+# 74 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino" 3 4
                                                                                      __null
-# 74 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino"
+# 74 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino"
                                                                                          , 10, &CNT_TASK_Handle, 1) ;
   if(xReturned_cnt == ( ( ( BaseType_t ) 1 ) )){
     return 1;
@@ -538,11 +538,11 @@ void keyboard_device_test(){
     delay(100);
     open_i2c_caps_led();
 }
-# 1 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino"
-# 2 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino" 2
+# 1 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino"
+# 2 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino" 2
 
-# 4 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino" 2
-# 5 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino" 2
+# 4 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino" 2
+# 5 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino" 2
 
 
 void Oled_Start(void){ // 开启oled显示
@@ -600,8 +600,8 @@ void draw_dog(){
     }
 
 }
-# 1 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\pcf8575.ino"
-# 2 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\pcf8575.ino" 2
+# 1 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\pcf8575.ino"
+# 2 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\pcf8575.ino" 2
 
 void pcf8575_begin(){
     pcf8575_writeAll(makeWord(255,255));
@@ -627,12 +627,12 @@ void pcf8575_readAll() {
     }
 
 }
-# 1 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_bt.ino"
-# 2 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_bt.ino" 2
-# 3 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_bt.ino" 2
-# 4 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_bt.ino" 2
-# 5 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_bt.ino" 2
-# 6 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_bt.ino" 2
+# 1 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_bt.ino"
+# 2 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_bt.ino" 2
+# 3 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_bt.ino" 2
+# 4 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_bt.ino" 2
+# 5 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_bt.ino" 2
+# 6 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_bt.ino" 2
 
 BleKeyboard bleKeyboard("Joker_60" /*设备名*/, "Liu" /*设备制造商*/, 100 /*电量*/);
 
@@ -644,7 +644,7 @@ void bt_test(){
     }
 
     bleKeyboard.begin();//Start blekeyboard service
-  pinMode(2,0x03);
+  pinMode(2,0x02);
   //
     for(;;){
 
@@ -677,7 +677,7 @@ void bt_test(){
             bleKeyboard.releaseAll();
 
             */
-# 44 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_bt.ino"
+# 44 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_bt.ino"
           i = (i+1)%2;
   }
     }
@@ -690,7 +690,7 @@ void bt_test(){
 蓝牙工作模式
 
 */
-# 54 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_bt.ino"
+# 54 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_bt.ino"
 void bt_work(void *pvParameters){
   if(DBG_KEYBOARD){
         Serial.println("Starting BLE work!");
@@ -899,9 +899,9 @@ bool joker_bt_start(){
     Serial.println("bt starting!");
     disableCore0WDT();
     xReturned_bt = xTaskCreatePinnedToCore(bt_work, "JOKER BT WORK", 9192, 
-# 261 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_bt.ino" 3 4
+# 261 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_bt.ino" 3 4
                                                                                    __null
-# 261 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_bt.ino"
+# 261 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_bt.ino"
                                                                                        , 4, &BT_TASK_Handle, 0) ;
     if(xReturned_bt == ( ( ( BaseType_t ) 1 ) )){
         return 1;
@@ -932,16 +932,16 @@ void joker_bt2usb(){
 }
 
 */
-# 281 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_bt.ino"
+# 281 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_bt.ino"
 void joker_bt2usb(){
     Serial.println("CHANGING MODE!");
     Keyboard_Config.BOOT_MODE = 0;
     save_config();
     ESP.restart();
 }
-# 1 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\save.ino"
-# 2 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\save.ino" 2
-# 3 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\save.ino" 2
+# 1 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\save.ino"
+# 2 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\save.ino" 2
+# 3 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\save.ino" 2
 
 void save_config()
 {
@@ -972,8 +972,8 @@ void load_config()
         save_config();
     }
 }
-# 1 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\scan.ino"
-# 2 "g:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\scan.ino" 2
+# 1 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\scan.ino"
+# 2 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\scan.ino" 2
 
 void scan_start()
 {
@@ -985,7 +985,7 @@ void scan_start()
   //初始化输出引脚
   for (int j = 0; j < 8; j++)
   {
-    pinMode(key_pin_out[j], 0x03);
+    pinMode(key_pin_out[j], 0x02);
     digitalWrite(key_pin_out[j], 0x1);
   }
 }

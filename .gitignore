@@ -2,3 +2,7 @@ bulid
 .vscode
 i2cscann.ino
 /Keyboard_code/poker_keyboard/build
+Keyboard_code/poker_keyboard/build/build.options.json
+Keyboard_code/poker_keyboard/build/build.options.json
+*.d
+*.o
