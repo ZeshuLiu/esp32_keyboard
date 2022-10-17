@@ -64,7 +64,7 @@ void bt_work(void *pvParameters){
   save_config();
   #ifdef Joker
   LineDisp("Waiting for BLE", ble_line);
-  display.drawString(0, ble_line*8 ,"Waiting for BLE");
+  //display.drawString(0, ble_line*8 ,"Waiting for BLE");
   #endif
   bool start_flag = 0;
   
@@ -79,8 +79,8 @@ for (;;){
     if (!start_flag){
       Serial.println("connected!");
       #ifdef Joker
-      display.drawString(0, ble_line*8 ,"<MODE>===========BLE");
-      display.display();
+      //display.drawString(0, ble_line*8 ,"<MODE>===========BLE");
+      //display.display();
       //LineDisp(">========BLE========<", ble_line);
       LineDisp("<MODE>===========BLE", ble_line);
       LineDisp("<FN>-------------------------OFF", fn_line);

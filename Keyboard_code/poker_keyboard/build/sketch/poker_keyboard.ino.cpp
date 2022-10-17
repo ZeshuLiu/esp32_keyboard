@@ -25,31 +25,31 @@ void init_seg();
 void joker_usb_test();
 #line 27 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
 void joker_usb_work(void *pvParameters);
-#line 276 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
+#line 279 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
 void words_change(uint8_t word_name, bool stat);
-#line 296 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
+#line 299 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
 bool joker_usb_start();
-#line 318 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
+#line 321 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
 void joker_usb2bt();
 #line 8 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino"
 void keyboard_setup();
-#line 35 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino"
+#line 36 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino"
 void open_inter_led();
-#line 39 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino"
+#line 40 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino"
 void close_inter_led();
-#line 44 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino"
+#line 45 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino"
 void cnt_work(void *pvParameters);
-#line 72 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino"
+#line 73 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino"
 bool cnt_start();
-#line 83 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino"
+#line 84 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino"
 void keyboard_device_test();
 #line 7 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino"
 void Oled_Start(void);
 #line 16 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino"
 void LineDisp(String to_print,int line, bool if_clear);
-#line 36 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino"
+#line 37 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino"
 void invert_disp(bool if_invert);
-#line 53 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino"
+#line 54 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino"
 void draw_dog();
 #line 3 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\pcf8575.ino"
 void pcf8575_begin();
@@ -71,9 +71,9 @@ void save_config();
 void load_config();
 #line 3 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\scan.ino"
 void scan_start();
-#line 18 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\scan.ino"
+#line 24 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\scan.ino"
 void key_scan_once();
-#line 43 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\scan.ino"
+#line 54 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\scan.ino"
 void key_scan();
 #line 17 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_keyboard.ino"
 void setup() {
@@ -182,10 +182,13 @@ void joker_usb_work(void *pvParameters){
     }
 
     #ifdef Joker
-    LineDisp("<MODE>===========USB", ble_line);
-    LineDisp("<FN>----------------------------OFF", fn_line);
-    //display.drawString(0, ble_line*8 ,"<MODE>===========USB");
-    //display.display();
+        //draw_dog();
+        delay(200);
+        oled_mode = 0;
+        LineDisp("<MODE>===========USB", ble_line,1);
+        LineDisp("<FN>----------------------------OFF", fn_line);
+        //display.drawString(0, ble_line*8 ,"<MODE>===========USB");
+        //display.display();
     #endif
 
     int start_time = micros();
@@ -481,21 +484,22 @@ void joker_usb2bt(){
 void keyboard_setup(){
   //Joker SETUP
   #ifdef Joker
-  //Flash LED
-  pinMode(LED_PIN,OUTPUT);
-  open_inter_led();
-  delay(100);
-  close_inter_led();
-  
-  //OLED Display
-  Oled_Start();
-  invert_disp(1);
-  LineDisp("      Joker 60 by LiuZS      ",3);
-  LineDisp("====Started!====",0);
-  //LineDisp("                              1.0",4);
-  delay(200);
-  invert_disp(0);
-  LineDisp(" ",3);
+    //Flash LED
+    pinMode(LED_PIN,OUTPUT);
+    open_inter_led();
+    delay(100);
+    close_inter_led();
+    
+    //OLED Display
+    Oled_Start();
+    invert_disp(1);
+    LineDisp("      Joker 60 by LiuZS      ",3);
+    LineDisp("====Started!====",0);
+    //LineDisp("                              1.0",4);
+    invert_disp(0);
+    delay(100);
+    LineDisp(" ",3,1);
+    delay(100);
   #endif
 
   //Master Yoda SETUP
@@ -584,6 +588,7 @@ void Oled_Start(void){    // 开启oled显示
 void LineDisp(String to_print,int line, bool if_clear){
     #ifdef Joker
     if (if_clear){
+        display.clear();
         for(int i=0; i<buff_size; i++){
             Line_Buff[i] = "";
         }
@@ -724,7 +729,7 @@ void bt_work(void *pvParameters){
   save_config();
   #ifdef Joker
   LineDisp("Waiting for BLE", ble_line);
-  display.drawString(0, ble_line*8 ,"Waiting for BLE");
+  //display.drawString(0, ble_line*8 ,"Waiting for BLE");
   #endif
   bool start_flag = 0;
   
@@ -739,8 +744,8 @@ for (;;){
     if (!start_flag){
       Serial.println("connected!");
       #ifdef Joker
-      display.drawString(0, ble_line*8 ,"<MODE>===========BLE");
-      display.display();
+      //display.drawString(0, ble_line*8 ,"<MODE>===========BLE");
+      //display.display();
       //LineDisp(">========BLE========<", ble_line);
       LineDisp("<MODE>===========BLE", ble_line);
       LineDisp("<FN>-------------------------OFF", fn_line);
@@ -998,6 +1003,12 @@ void scan_start()
   }
 }
 
+
+/*
+功能：单次扫描
+传参：无
+返回：无
+*/
 void key_scan_once(){
   //扫描
   for (int ROW = 0; ROW < number_out; ROW++)
@@ -1023,7 +1034,13 @@ void key_scan_once(){
   } //扫描结束
 }
 
+/*
+功能：应用于键盘时的扫描，带有多次扫描后平均功能
+传参：无
+返回：无
+*/
 void key_scan(){
+  int8_t scan_times = 7;
   //清零
   for (int ROW = 0; ROW < number_out; ROW++){
     for (int COL = 0; COL < number_in; COL++){
@@ -1032,14 +1049,14 @@ void key_scan(){
   } 
 
   //扫描
-  for (int i=0; i<5; i++){ //扫描5次
+  for (int i=0; i<scan_times; i++){ //扫描scan_times次
     key_scan_once();
   } //扫描结束
 
   //滤波
   for (int ROW = 0; ROW < number_out; ROW++){
     for (int COL = 0; COL < number_in; COL++){
-      key_press[ROW][COL] =  key_press[ROW][COL]/4; // >= 4次才改变
+      key_press[ROW][COL] =  key_press[ROW][COL]/(scan_times-1); // >= 4次才改变
     } 
   }//滤波结束
   

@@ -111,10 +111,13 @@ void joker_usb_work(void *pvParameters){
     }
 
 
-    LineDisp("<MODE>===========USB", 0);
-    LineDisp("<FN>----------------------------OFF", 1);
-    //display.drawString(0, ble_line*8 ,"<MODE>===========USB");
-    //display.display();
+        //draw_dog();
+        delay(200);
+        oled_mode = 0;
+        LineDisp("<MODE>===========USB", 0,1);
+        LineDisp("<FN>----------------------------OFF", 1);
+        //display.drawString(0, ble_line*8 ,"<MODE>===========USB");
+        //display.display();
 
 
     int start_time = micros();
@@ -266,7 +269,7 @@ void joker_usb_work(void *pvParameters){
             }
 
             */
-# 176 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
+# 179 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
             /*for (int ROW = 0; ROW < number_out; ROW++){//行循环判断
 
                 for (int COL = 0; COL < number_in; COL++){//列循环
@@ -296,7 +299,7 @@ void joker_usb_work(void *pvParameters){
             }//行循环判断
 
             */
-# 192 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
+# 195 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
             // 松开fn后将所有键值清零
             usb_send = 1;
             for (int i = 0; i < 8; i++){
@@ -404,9 +407,9 @@ void words_change(uint8_t word_name, bool stat){
 bool joker_usb_start(){
     disableCore0WDT();
     xReturned_usb = xTaskCreatePinnedToCore(joker_usb_work, "JOKER USB WORK", 9192, 
-# 298 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino" 3 4
+# 301 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino" 3 4
                                                                                              __null
-# 298 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
+# 301 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
                                                                                                  , 4, &USB_TASK_Handle, 0) ;
     if(xReturned_usb == ( ( ( BaseType_t ) 1 ) )){
         Serial.println("Usb Started!");
@@ -436,7 +439,7 @@ void joker_usb2bt(){
 }
 
 */
-# 318 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
+# 321 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
 void joker_usb2bt(){
     Keyboard_Config.BOOT_MODE = 1;
     save_config();
@@ -453,21 +456,22 @@ void joker_usb2bt(){
 void keyboard_setup(){
   //Joker SETUP
 
-  //Flash LED
-  pinMode(12,0x02);
-  open_inter_led();
-  delay(100);
-  close_inter_led();
+    //Flash LED
+    pinMode(12,0x02);
+    open_inter_led();
+    delay(100);
+    close_inter_led();
 
-  //OLED Display
-  Oled_Start();
-  invert_disp(1);
-  LineDisp("      Joker 60 by LiuZS      ",3);
-  LineDisp("====Started!====",0);
-  //LineDisp("                              1.0",4);
-  delay(200);
-  invert_disp(0);
-  LineDisp(" ",3);
+    //OLED Display
+    Oled_Start();
+    invert_disp(1);
+    LineDisp("      Joker 60 by LiuZS      ",3);
+    LineDisp("====Started!====",0);
+    //LineDisp("                              1.0",4);
+    invert_disp(0);
+    delay(100);
+    LineDisp(" ",3,1);
+    delay(100);
 
 
   //Master Yoda SETUP
@@ -517,9 +521,9 @@ void cnt_work(void *pvParameters){
 bool cnt_start(){
 
   xReturned_cnt = xTaskCreatePinnedToCore(cnt_work, "JOKER CNT WORK", 2048, 
-# 74 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino" 3 4
+# 75 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino" 3 4
                                                                                      __null
-# 74 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino"
+# 75 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino"
                                                                                          , 10, &CNT_TASK_Handle, 1) ;
   if(xReturned_cnt == ( ( ( BaseType_t ) 1 ) )){
     return 1;
@@ -557,6 +561,7 @@ void Oled_Start(void){ // 开启oled显示
 void LineDisp(String to_print,int line, bool if_clear){
 
     if (if_clear){
+        display.clear();
         for(int i=0; i<6; i++){
             Line_Buff[i] = "";
         }
@@ -704,7 +709,7 @@ void bt_work(void *pvParameters){
   save_config();
 
   LineDisp("Waiting for BLE", 0);
-  display.drawString(0, 0*8 ,"Waiting for BLE");
+  //display.drawString(0, ble_line*8 ,"Waiting for BLE");
 
   bool start_flag = 0;
 
@@ -719,8 +724,8 @@ for (;;){
     if (!start_flag){
       Serial.println("connected!");
 
-      display.drawString(0, 0*8 ,"<MODE>===========BLE");
-      display.display();
+      //display.drawString(0, ble_line*8 ,"<MODE>===========BLE");
+      //display.display();
       //LineDisp(">========BLE========<", ble_line);
       LineDisp("<MODE>===========BLE", 0);
       LineDisp("<FN>-------------------------OFF", 1);
@@ -990,6 +995,17 @@ void scan_start()
   }
 }
 
+
+/*
+
+功能：单次扫描
+
+传参：无
+
+返回：无
+
+*/
+# 24 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\scan.ino"
 void key_scan_once(){
   //扫描
   for (int ROW = 0; ROW < 8; ROW++)
@@ -1015,7 +1031,18 @@ void key_scan_once(){
   } //扫描结束
 }
 
+/*
+
+功能：应用于键盘时的扫描，带有多次扫描后平均功能
+
+传参：无
+
+返回：无
+
+*/
+# 54 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\scan.ino"
 void key_scan(){
+  int8_t scan_times = 7;
   //清零
   for (int ROW = 0; ROW < 8; ROW++){
     for (int COL = 0; COL < 8; COL++){
@@ -1024,14 +1051,14 @@ void key_scan(){
   }
 
   //扫描
-  for (int i=0; i<5; i++){ //扫描5次
+  for (int i=0; i<scan_times; i++){ //扫描scan_times次
     key_scan_once();
   } //扫描结束
 
   //滤波
   for (int ROW = 0; ROW < 8; ROW++){
     for (int COL = 0; COL < 8; COL++){
-      key_press[ROW][COL] = key_press[ROW][COL]/4; // >= 4次才改变
+      key_press[ROW][COL] = key_press[ROW][COL]/(scan_times-1); // >= 4次才改变
     }
   }//滤波结束
 

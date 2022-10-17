@@ -16,6 +16,7 @@ void Oled_Start(void){    // 开启oled显示
 void LineDisp(String to_print,int line, bool if_clear){
     #ifdef Joker
     if (if_clear){
+        display.clear();
         for(int i=0; i<buff_size; i++){
             Line_Buff[i] = "";
         }

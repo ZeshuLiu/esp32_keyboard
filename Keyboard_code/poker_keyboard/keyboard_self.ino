@@ -8,21 +8,22 @@
 void keyboard_setup(){
   //Joker SETUP
   #ifdef Joker
-  //Flash LED
-  pinMode(LED_PIN,OUTPUT);
-  open_inter_led();
-  delay(100);
-  close_inter_led();
-  
-  //OLED Display
-  Oled_Start();
-  invert_disp(1);
-  LineDisp("      Joker 60 by LiuZS      ",3);
-  LineDisp("====Started!====",0);
-  //LineDisp("                              1.0",4);
-  delay(200);
-  invert_disp(0);
-  LineDisp(" ",3);
+    //Flash LED
+    pinMode(LED_PIN,OUTPUT);
+    open_inter_led();
+    delay(100);
+    close_inter_led();
+    
+    //OLED Display
+    Oled_Start();
+    invert_disp(1);
+    LineDisp("      Joker 60 by LiuZS      ",3);
+    LineDisp("====Started!====",0);
+    //LineDisp("                              1.0",4);
+    invert_disp(0);
+    delay(100);
+    LineDisp(" ",3,1);
+    delay(100);
   #endif
 
   //Master Yoda SETUP

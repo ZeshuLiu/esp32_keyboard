@@ -33,10 +33,13 @@ void joker_usb_work(void *pvParameters){
     }
 
     #ifdef Joker
-    LineDisp("<MODE>===========USB", ble_line);
-    LineDisp("<FN>----------------------------OFF", fn_line);
-    //display.drawString(0, ble_line*8 ,"<MODE>===========USB");
-    //display.display();
+        //draw_dog();
+        delay(200);
+        oled_mode = 0;
+        LineDisp("<MODE>===========USB", ble_line,1);
+        LineDisp("<FN>----------------------------OFF", fn_line);
+        //display.drawString(0, ble_line*8 ,"<MODE>===========USB");
+        //display.display();
     #endif
 
     int start_time = micros();

@@ -1,5 +1,6 @@
-uint8_t LayOut_ALL[number_out][number_in] = {
-
-};
-12
-11aaaa
+I dont know if this worked well
+It seems good but some things are working badly!
+seems like gooddDddDDDdddddwojued 
+DDDDddd Good here 
+More Filtering reduced misresponding!
+Jimmy 20221017 

@@ -15,6 +15,12 @@ void scan_start()
   }
 }
 
+
+/*
+功能：单次扫描
+传参：无
+返回：无
+*/
 void key_scan_once(){
   //扫描
   for (int ROW = 0; ROW < number_out; ROW++)
@@ -40,7 +46,13 @@ void key_scan_once(){
   } //扫描结束
 }
 
+/*
+功能：应用于键盘时的扫描，带有多次扫描后平均功能
+传参：无
+返回：无
+*/
 void key_scan(){
+  int8_t scan_times = 7;
   //清零
   for (int ROW = 0; ROW < number_out; ROW++){
     for (int COL = 0; COL < number_in; COL++){
@@ -49,14 +61,14 @@ void key_scan(){
   } 
 
   //扫描
-  for (int i=0; i<5; i++){ //扫描5次
+  for (int i=0; i<scan_times; i++){ //扫描scan_times次
     key_scan_once();
   } //扫描结束
 
   //滤波
   for (int ROW = 0; ROW < number_out; ROW++){
     for (int COL = 0; COL < number_in; COL++){
-      key_press[ROW][COL] =  key_press[ROW][COL]/4; // >= 4次才改变
+      key_press[ROW][COL] =  key_press[ROW][COL]/(scan_times-1); // >= 4次才改变
     } 
   }//滤波结束
   
