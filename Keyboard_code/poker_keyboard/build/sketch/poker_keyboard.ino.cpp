@@ -15,67 +15,6 @@
   # include "Seg_disp.h"
 #endif
 
-#line 17 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_keyboard.ino"
-void setup();
-#line 63 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_keyboard.ino"
-void loop();
-#line 3 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\Seg_disp.ino"
-void init_seg();
-#line 11 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
-void joker_usb_test();
-#line 27 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
-void joker_usb_work(void *pvParameters);
-#line 279 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
-void words_change(uint8_t word_name, bool stat);
-#line 299 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
-bool joker_usb_start();
-#line 321 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\joker_usb.ino"
-void joker_usb2bt();
-#line 8 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino"
-void keyboard_setup();
-#line 36 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino"
-void open_inter_led();
-#line 40 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino"
-void close_inter_led();
-#line 45 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino"
-void cnt_work(void *pvParameters);
-#line 73 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino"
-bool cnt_start();
-#line 84 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\keyboard_self.ino"
-void keyboard_device_test();
-#line 7 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino"
-void Oled_Start(void);
-#line 16 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino"
-void LineDisp(String to_print,int line, bool if_clear);
-#line 37 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino"
-void invert_disp(bool if_invert);
-#line 54 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\oled_buff.ino"
-void draw_dog();
-#line 3 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\pcf8575.ino"
-void pcf8575_begin();
-#line 7 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\pcf8575.ino"
-void pcf8575_writeAll(uint16_t data);
-#line 14 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\pcf8575.ino"
-void pcf8575_readAll();
-#line 9 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_bt.ino"
-void bt_test();
-#line 54 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_bt.ino"
-void bt_work(void *pvParameters);
-#line 258 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_bt.ino"
-bool joker_bt_start();
-#line 281 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_bt.ino"
-void joker_bt2usb();
-#line 4 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\save.ino"
-void save_config();
-#line 15 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\save.ino"
-void load_config();
-#line 3 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\scan.ino"
-void scan_start();
-#line 24 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\scan.ino"
-void key_scan_once();
-#line 54 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\scan.ino"
-void key_scan();
-#line 17 "d:\\Data\\开发\\esp32_keyboard\\Keyboard_code\\poker_keyboard\\poker_keyboard.ino"
 void setup() {
   // DBG 设置
   Serial.begin(115200);
