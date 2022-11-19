@@ -1,4 +1,30 @@
 # 使用esp32为控制器的机械键盘
+
+## **JOKER60**
+`Joker 60` 
+### **简介**
+Joker60是一把poker配列61键键盘，具有一个fn键和一个pn键。
+fn键用于输入第二层的键值，如<kbd>F1</kbd>、<kbd>ESC</kbd>（当左上角键被设置为<kbd>`</kbd>时）\
+![JOKER60 Layout](https://github.com/LiuZSChina/esp32_keyboard/blob/main/Joker60/Joker60-layout.jpg)\
+OLED屏幕可以显示当前模式，fn键状态。并且具有每30分钟提醒休息的功能，也可以自己修改源代码进行配置\
+具有外接电池位置(PCB上B+、GND) 、外接LED灯或其他部件位置(x_LED)和i2c总线接口（*OLED屏幕使用中、可以串联其他不同地址的i2c设备同时使用*）
+
+## **JOKER60 v2**
+`Joker60 v2` 
+### **简介**
+外形与Joker60完全一致，大部分零件均通用。\
+Joker60换用了ch9329芯片，可以支持媒体键（音量增加、减小等）。\
+电路板进行了大面积敷铜，使用Kicad进行绘制，工程文件在Joker60_v2文件夹内。\
+电路部分经过重新设计可以支持常驻型的usb拓展模块（详见Joker60_v2\usb_ext）并且可以板载电池。\
+大小写指示灯更换了位置。
+
+## **MASTER YODA**
+`Master Yoda` 
+### **简介**
+一个小的键盘，可以用来打游戏等。
+
+
+---
 ## **如何使用**
 ## **所需工具**
 1. **电烙铁及焊锡等** ***必须***\
@@ -16,10 +42,11 @@
 7. **BOM表上的其他零件** ***必须***\
     [JOKER60 BOM](https://github.com/LiuZSChina/esp32_keyboard/blob/main/Joker60/01/BOM_PCB_Joker60_ver1_2022-04-18.csv)。除了芯片类的东西比如螺丝、二极管等尽量多买几个，*不建议买正好数量，尤其是螺丝*。建议在立创商城搜索相关零件，如果去淘宝购买注意要购买针脚一样的（***USB接口和开关是重点***）否则装不上。（当然我是在淘宝买的，比较便宜 **:D**
 
-
+---
 ###  **PCB部分**
 Gerber文件：
-1. [JOKER60 PCB](https://github.com/LiuZSChina/esp32_keyboard/blob/main/Joker60/01/Gerber_PCB_Joker60_ver1.zip) \
+1. [JOKER60 PCB](https://github.com/LiuZSChina/esp32_keyboard/blob/main/Joker60/01/Gerber_PCB_Joker60_ver1.zip) 
+2. [JOKER60_v2 PCB](https://github.com/LiuZSChina/esp32_keyboard/blob/main/Joker60_v2/Joker60_v2_gerber/Joker60_v2_gerber_1026.zip) \
 大部分PCB定制厂商都支持直接使用Gerber文件制作。推荐制作1.6mm厚度。
 ### **外壳、定位板部分**
 外壳、定位板文件：
@@ -31,27 +58,30 @@ Gerber文件：
 1. 找厂家生产pcb和外壳等，并购买所需要元件（详见BOM表）
 2. 按照BOM表上的元件位号焊接材料，主要二极管（1N4147）有反正之分，请注意区分。
 3. 刷入固件，详见各版本介绍中烧录条目。源码中的库需要在Arduino中安装。
-
-----
-## **JOKER60**
-`Joker 60` 
-### **简介**
-Joker60是一把poker配列61键键盘，具有一个fn键和一个pn键。
-fn键用于输入第二层的键值，如<kbd>F1</kbd>、<kbd>ESC</kbd>（当左上角键被设置为<kbd>`</kbd>时）\
-![JOKER60 Layout](https://github.com/LiuZSChina/esp32_keyboard/blob/main/Joker60/Joker60-layout.jpg)\
-OLED屏幕可以显示当前模式，fn键状态。并且具有每30分钟提醒休息的功能，也可以自己修改源代码进行配置\
-具有外接电池位置(PCB上B+、GND) 、外接LED灯或其他部件位置(x_LED)和i2c总线接口（*OLED屏幕使用中、可以串联其他不同地址的i2c设备同时使用*）
-
 ### **烧录**
 + **1.0版本**\
     需要将开关打至接通ch340的档位，具体方向和焊接方向有关，可以从电脑设备管理器中查看是否连接上ch340进行判断(***v1.0版本（Gerber_PCB_Joker60_ver1）* 中ch340的tx和rx接线是反的，需要飞线调整，并且用小刀割断pcb上的连线**)\
-    将gnd和boot短接后通电，进入下载模式，使用arduino ide或其他编辑器上传固件（具体方法网上很多教程）。gnd和boot在断开的情况再次断电再通电即可退出下载模式运行键盘程序，此时usb口功能通过开关选择ch340和ch9328在串口调试和USB键盘之间切换，*无法同时使用*
+    将gnd和boot短接后通电(**MasterYoda上采用了按键的形式**)，进入下载模式，使用arduino ide或其他编辑器上传固件（具体方法网上很多教程）。gnd和boot在断开的情况再次断电再通电即可退出下载模式运行键盘程序，此时usb口功能通过开关选择ch340和ch9328在串口调试和USB键盘之间切换，*无法同时使用*
 
 ### **快捷键**
 + 开启、关闭内置LED灯：<kbd>Pn</kbd> + <kbd>L</kbd>
 + 重置倒计时：<kbd>Pn</kbd> + <kbd>C</kbd>
 + 连接模式转换：<kbd>Pn</kbd> + <kbd>M</kbd> 并且保持三秒以上
 
+### **2.0版本**
+——2022.11——\
+修复了大部分问题。\
+可以开机切换模式。\
+**已知问题：** 
+1. 暂无
+
+### **2.1版本**——未发布
+*预计更改*：
+1. 增加CapsLock指示
+2. 蓝牙可以常时连接，可以快速切换在连接的蓝牙设备进行输入或者在连接到usb设备上输入
+
+---
+## 历史版本
 ### **1.0版本**
 ——2022.4——\
 初始发布版本，具有蓝牙和有线连接两种方式。\
@@ -59,11 +89,7 @@ OLED屏幕可以显示当前模式，fn键状态。并且具有每30分钟提醒
 1. USB转蓝牙模式会导致死机
 2. 更改模式需要重新烧录代码
 3. CH340N的rx、tx接反了，需要飞线连接。
-### **1.1版本**——未发布
-*预计更改*：
-1. 增加开机状态切换模式的功能
-2. 增加CapsLock指示
-3. 修改PCB文件
+
 
 
 
