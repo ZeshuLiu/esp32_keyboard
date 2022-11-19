@@ -4,6 +4,7 @@
 # include "poker_keyboard.h"
 # include <Arduino.h>
 # include "pcf8575.h"
+# include "Layout.h"
 
 
 //设备状态
@@ -26,8 +27,17 @@ bool cnt_start();
 void keyboard_setup(void);
 
 //LED设置
-#define LED_PIN 12
-#define CAP_LED_PIN P01
+//Joker60
+# ifndef Ver2
+# define LED_PIN 12
+# define CAP_LED_PIN P01
+# endif
+//Joker 60v2
+# ifdef Ver2
+# define LED_PIN 15
+# define CAP_LED_PIN P01
+#endif
+
 void open_i2c_keyboard_led(void);
 void close_i2c_keyboard_led(void);
 void open_i2c_caps_led(void);

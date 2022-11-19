@@ -6,7 +6,8 @@
 #include "save.h"
 #include "esp32-hal.h"
 #include "Layout.h"
-
+#include "L_CH932x.h"
+#include "poker_keyboard.h"
 
 void joker_usb_test(){
     if (key_code[2] == 0x00){
@@ -27,6 +28,7 @@ void joker_usb_test(){
 void joker_usb_work(void *pvParameters){
     bool start_flag = 0;
     bool usb_send = 0;
+    bool media_send = 0;
     for (int i = 0; i < 8; i++)
     {
         key_code[i] = 0x00;
@@ -54,7 +56,9 @@ void joker_usb_work(void *pvParameters){
         #ifdef Joker
         //PN按下
         if(pn_stat){//pn被按下
-            if ((key_press[LED_ROW][LED_COL]==0)&&(old_key_press[LED_ROW][LED_COL]==1)){ //LED 控制
+
+            //LED 控制
+            if ((key_press[LED_ROW][LED_COL]==0)&&(old_key_press[LED_ROW][LED_COL]==1)){ 
                 if(!LED_STAT){
                     open_inter_led();
                     //draw_dog();
@@ -99,6 +103,29 @@ void joker_usb_work(void *pvParameters){
             }
             //重置倒计时
 
+            //媒体键
+            #ifdef __MEDIA__ 
+            //循环赋值
+                for (int ROW = 0; ROW < number_out; ROW++){//循环赋值
+                    for (int COL = 0; COL < number_in; COL++){
+                        if (start_flag && (old_key_press[ROW][COL]!=key_press[ROW][COL]) && (if_Media_code[ROW][COL] != 0) ){//键值变化 并且连续两次按下的一样 并且是媒体键
+                                Serial.println("Media:"+String(ROW)+","+String(COL)+":"+String(key_press[ROW][COL]));
+                                media_send = 1;
+                                if(key_press[ROW][COL] == 0){//按下
+                                    ch9329.media_keyboard_change(if_Media_code[ROW][COL], Media_code[ROW][COL], 1);
+                                }
+                                else{//松开
+                                    ch9329.media_keyboard_change(if_Media_code[ROW][COL], Media_code[ROW][COL], 0);
+                                }
+                        }//键值变化结束
+                    }//列结束   
+                }//行结束
+                if(media_send){
+                    media_send = 0;
+                    ch9329.media_keyboard_send();
+                }
+            #endif
+            //媒体键
 
         }
         //PN第一次按下
@@ -120,6 +147,7 @@ void joker_usb_work(void *pvParameters){
             }
             pn_stat = 0;
             USB_to_change_mode = 0;
+            ch9329.media_keyboard_clear();
         }//pn第一次松开
         #endif
 
@@ -158,40 +186,6 @@ void joker_usb_work(void *pvParameters){
             #endif
             fn_stat = 0;
 
-            /*
-            for (int ROW = 0; ROW < number_out; ROW++){//行循环判断
-                for (int COL = 0; COL < number_in; COL++){//列循环
-                    if((old_key_press[ROW][COL]==0)&&(key_press[ROW][COL]==0)&&(USB_LayOut_ALL[ROW][COL]!=USB_LayOut_ALL_FN[ROW][COL])){//键被按下，且此键的键值在fn按下后发生了变化
-                        usb_send = 1;
-                        if(USB_LayOut_ALL[ROW][COL]!=USB_LayOut_words[ROW][COL]){//是第一位的键值
-                                key_code[0] = key_code[0]&(!USB_LayOut_ALL[ROW][COL]);
-                        }//是第一位的键值
-
-                        else{//是正常的键值
-                            words_change(USB_LayOut_words_FN[ROW][COL],1); //松开是fn的键值
-                            words_change(USB_LayOut_words[ROW][COL],0); //按下fn对应的键值
-                        }//是正常的键值
-                    }//松开fn改变键值结束
-                }
-            }
-            */
-
-            /*for (int ROW = 0; ROW < number_out; ROW++){//行循环判断
-                for (int COL = 0; COL < number_in; COL++){//列循环
-                    if((old_key_press[ROW][COL]==0)&&(key_press[ROW][COL]==0)&&(USB_LayOut_ALL[ROW][COL]!=USB_LayOut_ALL_FN[ROW][COL])){//键被按下，且此键的键值在fn按下后发生了变化
-                        usb_send = 1;
-                        if(USB_LayOut_ALL[ROW][COL]!=USB_LayOut_words[ROW][COL]){//是第一位的键值
-                                key_code[0] = key_code[0]&(!USB_LayOut_ALL[ROW][COL]);
-                        }//是第一位的键值
-
-                        else{//是正常的键值
-                            words_change(USB_LayOut_words_FN[ROW][COL],1); //松开是fn的键值
-                        }//是正常的键值
-                    }//松开fn改变键值结束
-                }
-            }//行循环判断
-            */
-           
             // 松开fn后将所有键值清零
             usb_send = 1;
             for (int i = 0; i < 8; i++){
@@ -205,6 +199,7 @@ void joker_usb_work(void *pvParameters){
         for (int ROW = 0; ROW < number_out; ROW++){//循环赋值
             for (int COL = 0; COL < number_in; COL++){
                 if (start_flag && (old_key_press[ROW][COL]!=key_press[ROW][COL]) &&(!pn_stat)){//键值变化且pn没有按下 并且连续两次按下的一样
+                        Serial.println(String(ROW)+","+String(COL));
                         usb_send = 1;
                     if(USB_LayOut_ALL[ROW][COL]!=USB_LayOut_words[ROW][COL]){//是第一位的键值
                         if(key_press[ROW][COL]==0){//按下
@@ -258,11 +253,20 @@ void joker_usb_work(void *pvParameters){
         
         //发送按键
         if (usb_send){
+            #ifndef Ver2
             Serial2.write(key_code,8);
+            #endif
+
+            #ifdef Joker
+            #ifdef Ver2
+            ch9329.general_keyboard_send(key_code);
+            #endif
+            #endif
+
             usb_send = 0; //发送后设置为0
 
             if (DBG_KEYBOARD){
-                Serial.println("sending:" + String(key_code[0]));
+                Serial.println("sending:" + String(key_code[2]));
                 Serial.println("Time:" + String(micros()-start_time));
                 
             } 

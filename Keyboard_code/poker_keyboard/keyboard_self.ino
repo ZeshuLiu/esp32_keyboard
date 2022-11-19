@@ -34,11 +34,21 @@ void keyboard_setup(){
 }
 
 void open_inter_led(){
+  #ifndef Ver2
   digitalWrite(LED_PIN,HIGH);
+  #endif
+  #ifdef Ver2
+  digitalWrite(LED_PIN,LOW);
+  #endif
   LED_STAT = 1;
 }
 void close_inter_led(){
+  #ifndef Ver2
   digitalWrite(LED_PIN,LOW);
+  #endif
+  #ifdef Ver2
+  digitalWrite(LED_PIN,HIGH);
+  #endif
   LED_STAT = 0;
 }
 

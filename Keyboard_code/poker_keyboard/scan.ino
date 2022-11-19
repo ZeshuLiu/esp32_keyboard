@@ -52,7 +52,7 @@ void key_scan_once(){
 返回：无
 */
 void key_scan(){
-  int8_t scan_times = 7;
+  int8_t scan_times = 10;
   //清零
   for (int ROW = 0; ROW < number_out; ROW++){
     for (int COL = 0; COL < number_in; COL++){

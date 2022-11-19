@@ -9,10 +9,13 @@
 # include "joker_usb.h"
 # include "save.h"
 # include "oled_buff.h"
+# include "L_CH932x.h"
 
 #ifdef MasterYoda
   # include "Seg_disp.h"
 #endif
+
+
 
 void setup() {
   // DBG 设置
@@ -37,8 +40,18 @@ void setup() {
 
   // 9328USB输出
   #ifdef Joker
+  #ifndef Ver2
   Serial2.begin(115200, SERIAL_8N1, 17, 16); 
   #endif
+  #endif
+
+  // ch9329
+  #ifdef Joker
+  #ifdef Ver2
+  ch9329.begin(16,17,9600);
+  #endif
+  #endif
+
   #ifdef MasterYoda
   Serial2.begin(115200, SERIAL_8N1, 16, 17);
   #endif

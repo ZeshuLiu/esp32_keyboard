@@ -1,6 +1,8 @@
 #ifndef ESP_KEYBOARD_H
 #define ESP_KEYBOARD_H
 #include "Layout.h"
+#include "L_CH932x.h"
+
 bool DBG_KEYBOARD = 1;
 
 #ifdef Joker
@@ -21,7 +23,11 @@ int DFT_BOOT_MODE; //0是usb，1是蓝牙
 # define kbd_SDA 21
 # define kbd_SCL 22
 
-
+#ifdef Joker
+#ifdef Ver2
+L_CH9329 ch9329;
+#endif
+#endif
 
 
 #endif
